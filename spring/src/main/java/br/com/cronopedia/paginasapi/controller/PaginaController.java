@@ -30,7 +30,12 @@ public class PaginaController {
     // Retorna uma página com o id solicitado no parâmetro
     @GetMapping("/paginas/id/{id}")
     public Pagina idPage(@PathVariable("id") int id) {
-        return PaginaRepository.getById(id);
+        try {
+            Pagina p = PaginaRepository.getById(id);
+            return p;
+        } catch (IndexOutOfBoundsException e) {
+            return PaginaRepository.voidPage();
+        }
     }
 
     // Retorna todas as páginas com o assunto passado no parâmetro

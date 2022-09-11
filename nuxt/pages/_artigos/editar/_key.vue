@@ -57,7 +57,11 @@ export default {
       );
     },
     async deletar() {
-      const a = await this.$axios.$delete("/paginas/deletar/"+this.article.id);
+      await this.$axios
+        .$delete("/paginas/deletar/" + this.article.id)
+        .then(() => {
+          this.$router.push("/");
+        });
     },
   },
 };

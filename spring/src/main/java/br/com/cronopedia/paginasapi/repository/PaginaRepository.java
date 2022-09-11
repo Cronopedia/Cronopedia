@@ -52,7 +52,6 @@ public class PaginaRepository {
                     "tecnologia",
                     "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/1200px-Elon_Musk_Royal_Society_%28crop2%29.jpg"));
 
-
             paginaDoDia = random.nextInt(PaginaRepository.repo.paginas.size());
             ;
         }
@@ -61,6 +60,13 @@ public class PaginaRepository {
     // Adicionando uma nova página
     public static void add(Pagina pagina) {
         PaginaRepository.repo.paginas.add(pagina);
+    }
+
+    public static Pagina voidPage() {
+        Pagina voidPage = new Pagina("Página inexistente", "Cronopédia", "",
+                "Não foi possivel encontrar a página solicitada.", "", "");
+
+        return voidPage;
     }
 
     // Retornando todas as página
