@@ -10,6 +10,7 @@
           <Editor :conteudo="`${article.conteudo}`"></Editor>
 
           <button @click="salvar()">Salvar</button>
+          <button @click="deletar()">Deletar</button>
         </form>
       </section>
       <section class="article-imagens">
@@ -54,6 +55,9 @@ export default {
           mudanca,
         }
       );
+    },
+    async deletar() {
+      const a = await this.$axios.$delete("/paginas/deletar/"+this.article.id);
     },
   },
 };
