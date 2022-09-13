@@ -23,6 +23,7 @@
           id="search-bar-top"
           placeholder="Pesquise algo..."
           v-model="search"
+          autocomplete="off"
         />
         <label for="search-bar" class="label-search"></label>
         <section class="search-results-dropdown" data-visible="false">
