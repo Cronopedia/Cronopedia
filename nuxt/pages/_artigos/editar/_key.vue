@@ -48,7 +48,7 @@ export default {
       var textarea = document.querySelector(
         "div.tox-sidebar-wrap div.tox-edit-area iframe"
       ).contentDocument;
-      var mudanca = textarea.querySelector("body p").innerText;
+      var mudanca = textarea.querySelector("body").innerHTML;
       const a = await this.$axios.$put(
         "/paginas/atualizar/3/" + this.article.id,
         {
