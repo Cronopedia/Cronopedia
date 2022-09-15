@@ -9,8 +9,6 @@ import br.com.cronopedia.paginasapi.repository.PaginaRepository;
 public class PaginasApiApplication {
 
 	public static void main(String[] args) {
-		PaginaRepository.init();
-
 		SpringApplication.run(PaginasApiApplication.class, args);
 	}
 

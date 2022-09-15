@@ -6,11 +6,20 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Pagina {
-    private static int idCounter = 0;
+    private static Long idCounter = (long) 0;
     protected SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    
     private String titulo;
     private String autor;
     private Date date = new Date();
@@ -19,6 +28,7 @@ public class Pagina {
     private String conteudo;
     private ArrayList<String> assuntos;
     private ArrayList<String> imagensURL;
+    private Long relevancia = (long) 0;
 
     public Pagina() {
         this.id = ++Pagina.idCounter;
@@ -40,11 +50,11 @@ public class Pagina {
         this.imagensURL.add(url);
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -112,7 +122,51 @@ public class Pagina {
         return imagensURL;
     }
 
-    // Termos identicos
+    public static Long getIdCounter() {
+        return idCounter;
+    }
+
+    public static void setIdCounter(Long idCounter) {
+        Pagina.idCounter = idCounter;
+    }
+
+    public SimpleDateFormat getFormatter() {
+        return formatter;
+    }
+
+    public void setFormatter(SimpleDateFormat formatter) {
+        this.formatter = formatter;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setAssuntos(ArrayList<String> assuntos) {
+        this.assuntos = assuntos;
+    }
+
+    public ArrayList<String> getImagensURL() {
+        return imagensURL;
+    }
+
+    public void setImagensURL(ArrayList<String> imagensURL) {
+        this.imagensURL = imagensURL;
+    }
+
+    public Long getRelevancia() {
+        return relevancia;
+    }
+
+    public void setRelevancia(Long relevancia) {
+        this.relevancia = relevancia;
+    }
+
+    // Termos identicos (Deprecated)
     public Boolean relecionada(String assunto) {
         if (this.getAssuntos().contains(assunto)) {
             return true;
@@ -137,5 +191,12 @@ public class Pagina {
         }
 
         return false;
+    }
+
+    public static Pagina voidPage() {
+        Pagina voidPage = new Pagina("Página inexistente", "Cronopédia", "",
+                "Não foi possivel encontrar a página solicitada.", "", "");
+
+        return voidPage;
     }
 }
