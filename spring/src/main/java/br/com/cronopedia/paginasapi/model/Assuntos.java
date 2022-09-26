@@ -1,10 +1,11 @@
 package br.com.cronopedia.paginasapi.model;
 
-import java.util.List;
-
 import javax.persistence.Id;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -17,8 +18,9 @@ public class Assuntos {
 
     private String tag;
 
-    @ManyToMany(mappedBy = "assuntos")
-    private List<Pagina> paginasAssociadas;
+    @ManyToOne
+    @JsonBackReference
+    private Pagina paginasAssociadas;
 
     public Assuntos() {
     }
@@ -39,13 +41,12 @@ public class Assuntos {
         this.tag = tag;
     }
 
-    public List<Pagina> getPaginasAssociadas() {
+    public Pagina getPaginasAssociadas() {
         return paginasAssociadas;
     }
 
-    public void setPaginasAssociadas(List<Pagina> paginasAssociadas) {
+    public void setPaginasAssociadas(Pagina paginasAssociadas) {
         this.paginasAssociadas = paginasAssociadas;
     }
 
-    
 }

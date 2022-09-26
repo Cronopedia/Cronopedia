@@ -1,9 +1,8 @@
 package br.com.cronopedia.paginasapi.controller;
 
-import org.hibernate.transform.ToListResultTransformer;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.configurationprocessor.json.JSONException;
-import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +20,7 @@ import java.util.List;
 @RestController
 public class PaginaController {
 
-    // Injeção 
+    // Injeção
     @Autowired
     PaginaRepository paginaRepository;
 
@@ -47,31 +46,13 @@ public class PaginaController {
     // Retorna todas as páginas com o assunto passado no parâmetro
     // @GetMapping("/paginas/{assunto}")
     // public List<Pagina> assuntoPage(@PathVariable("assunto") String assunto) {
-    //     return paginaRepository.findByAssuntos(assunto);
+    // return paginaRepository.findByAssuntos(assunto);
     // }
 
     // Adiciona uma nova página ao repository
     @PostMapping("/paginas/add")
-    public void addPage(@RequestBody String e) throws JSONException {
-        // Convertendo o corpo da requisição em JSON
-        JSONObject json = new JSONObject(e);
-
-        // Instânciando uma nova página com as informações recebidas
-        Pagina pagina;
-        try {
-            pagina = new Pagina(
-                    json.getString("titulo"),
-                    json.getString("autor"),
-                    json.getString("resumo"),
-                    json.getString("conteudo"),
-                    json.getString("assuntos"),
-                    json.getString("url"));
-
-            // Adicionando a página no repositório
-            paginaRepository.save(pagina);
-        } catch (JSONException e1) {
-            e1.printStackTrace();
-        }
+    public void addPage(@RequestBody Pagina p) throws JSONException {
+        paginaRepository.save(p);
     }
 
     // Atualizando um campo de uma página
@@ -89,6 +70,6 @@ public class PaginaController {
     // Retorna todas as páginas
     // @GetMapping("/paginas/daily")
     // public Long getPaginaDoDia() {
-    //     return paginaRepository.findByRelevancia().getId();
+    // return paginaRepository.findByRelevancia().getId();
     // }
 }

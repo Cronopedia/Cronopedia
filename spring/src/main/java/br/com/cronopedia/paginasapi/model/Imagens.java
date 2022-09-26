@@ -4,18 +4,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Imagens {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long ID;
 
     private String url;
 
-    @OneToMany()
+    @ManyToOne()
     private Pagina pagina;
 
     public Imagens() {
