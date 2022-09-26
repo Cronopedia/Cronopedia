@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,9 +27,7 @@ public class Pagina {
     private String titulo;
 
     private String autor;
-
-    @Column(name = "date")
-    private Date date = new Date();
+    private Date dataPublicacao;
     private String resumo;
     private String conteudo;
 
@@ -77,12 +74,12 @@ public class Pagina {
         this.autor = autor;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getDataPublicacao() {
+        return dataPublicacao;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDataPublicacao(Date dataPublicacao) {
+        this.dataPublicacao = dataPublicacao;
     }
 
     public String getResumo() {
@@ -117,20 +114,20 @@ public class Pagina {
         this.imagensURL = imagensURL;
     }
 
-    public List<manyAssuntos> getAssuntosMany() {
-        return assuntosMany;
-    }
-
-    public void setAssuntosMany(List<manyAssuntos> assuntosMany) {
-        this.assuntosMany = assuntosMany;
-    }
-
     public List<Assuntos> getAssuntos() {
         return assuntos;
     }
 
     public void setAssuntos(List<Assuntos> assuntos) {
         this.assuntos = assuntos;
+    }
+
+    public List<manyAssuntos> getAssuntosMany() {
+        return assuntosMany;
+    }
+
+    public void setAssuntosMany(List<manyAssuntos> assuntosMany) {
+        this.assuntosMany = assuntosMany;
     }
 
 }

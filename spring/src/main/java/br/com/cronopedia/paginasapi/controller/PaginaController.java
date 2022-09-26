@@ -1,8 +1,6 @@
 package br.com.cronopedia.paginasapi.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,15 +42,21 @@ public class PaginaController {
     }
 
     // Retorna todas as páginas com o assunto passado no parâmetro
-    // @GetMapping("/paginas/{assunto}")
-    // public List<Pagina> assuntoPage(@PathVariable("assunto") String assunto) {
-    // return paginaRepository.findByAssuntos(assunto);
-    // }
+    @GetMapping("/paginas/{assunto}")
+    public List<Pagina> assuntoPage(@PathVariable("assunto") String assunto) {
+        return paginaRepository.findByAssuntos(assunto);
+    }
 
-    // Adiciona uma nova página ao repository
+    // Adiciona uma nova página ao banco
     @PostMapping("/paginas/add")
-    public void addPage(@RequestBody Pagina p) throws JSONException {
-        paginaRepository.save(p);
+    public void addPage(@RequestBody Pagina pagina) {
+        paginaRepository.save(pagina);
+    }
+
+    // Adiciona varias páginas ao banco (para testes)
+    @PostMapping("/paginas/addArray")
+    public void addPages(@RequestBody List<Pagina> paginas) {
+        paginaRepository.saveAll(paginas);
     }
 
     // Atualizando um campo de uma página
@@ -67,9 +71,8 @@ public class PaginaController {
         paginaRepository.deleteById(id);
     }
 
-    // Retorna todas as páginas
-    // @GetMapping("/paginas/daily")
-    // public Long getPaginaDoDia() {
-    // return paginaRepository.findByRelevancia().getId();
+    // @GetMapping("/paginas/top")
+    // public Pagina getPaginaD(Long id) {
+    // return paginaRepository.;
     // }
 }
