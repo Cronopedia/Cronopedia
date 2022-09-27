@@ -10,8 +10,6 @@ import br.com.cronopedia.paginasapi.model.Pagina;
 public interface MetodosCustomInterface {
 
     // Encontra as paginas relacionadas a tag/assunto
-    // Query = SELECT * FROM pagina WHERE id = (SELECT fk_pagina from assuntos WHERE
-    // tag = "tagParametro");
     @Query(value = "SELECT * FROM pagina WHERE id = (SELECT fk_pagina from assuntos WHERE tag = :tagParametro)", nativeQuery = true)
     List<Pagina> findByAssuntos(@Param("tagParametro") String tagP);
 

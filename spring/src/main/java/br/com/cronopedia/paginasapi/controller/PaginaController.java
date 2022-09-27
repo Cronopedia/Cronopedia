@@ -75,4 +75,25 @@ public class PaginaController {
     // public Pagina getPaginaD(Long id) {
     // return paginaRepository.;
     // }
+
+    // Json add
+    // {
+    //     "titulo": "Teste",
+    //     "resumo": "Frase para conteuxtualizar o artigo",
+    //     "autor": "Jorge F. A.",
+    //     "dataPublicacao": "2022-12-31",
+    //     "conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut scelerisque congue felis sed dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+    //     "assuntosMany":[
+    //       {"tag": "AssuntoTeste"},
+    //       {"tag": "Snow"}
+    //     ],
+    //     "assuntos":[
+    //       {"tag": "AssuntoTeste"},
+    //       {"tag": "Snow"}
+    //     ],
+    //     "imagensURL":[
+    //       {"url": "https://..."},
+    //       {"url": "https://..."}
+    //     ]
+    //   }
 }
