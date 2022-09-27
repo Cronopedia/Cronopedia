@@ -47,6 +47,8 @@ public class Pagina {
     @JoinTable(name = "associacao_pagina_assuntos", joinColumns = @JoinColumn(name = "fk_pagina"), inverseJoinColumns = @JoinColumn(name = "fk_assunto"))
     private List<manyAssuntos> assuntosMany;
 
+    // ManyToMany com usuário (varias paginas poderão ser propriedade de varios usuários) -> princípio da colaboração
+
     public Pagina() {
     }
 
