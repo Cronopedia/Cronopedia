@@ -33,11 +33,13 @@ public class Pagina {
 
     private float relevancia = (long) 0;
 
+    // associação das Imagens
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_url")
     @JsonManagedReference
     private List<Imagens> imagensURL;
 
+    // Associação dos Assuntos
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_pagina")
     @JsonManagedReference
@@ -47,7 +49,23 @@ public class Pagina {
     @JoinTable(name = "associacao_pagina_assuntos", joinColumns = @JoinColumn(name = "fk_pagina"), inverseJoinColumns = @JoinColumn(name = "fk_assunto"))
     private List<manyAssuntos> assuntosMany;
 
-    // ManyToMany com usuário (varias paginas poderão ser propriedade de varios usuários) -> princípio da colaboração
+    // Associação dos Históricos
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_edicao")
+    @JsonManagedReference
+    private List<Historico> historicos;
+
+    // ManyToMany com usuário (varias paginas poderão ser propriedade de varios
+    // usuários) -> princípio da colaboração
+    // Associação dos Assuntos
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_pagina")
+    @JsonManagedReference
+    private List<Usuario> usuarios;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "associacao_pagina_usuario", joinColumns = @JoinColumn(name = "fk_pagina"), inverseJoinColumns = @JoinColumn(name = "fk_usuario"))
+    private List<manyUsuarios> usuariosMany;
 
     public Pagina() {
     }
@@ -130,6 +148,30 @@ public class Pagina {
 
     public void setAssuntosMany(List<manyAssuntos> assuntosMany) {
         this.assuntosMany = assuntosMany;
+    }
+
+    public List<Historico> getHistoricos() {
+        return historicos;
+    }
+
+    public void setHistoricos(List<Historico> historicos) {
+        this.historicos = historicos;
+    }
+
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public List<manyUsuarios> getUsuariosMany() {
+        return usuariosMany;
+    }
+
+    public void setUsuariosMany(List<manyUsuarios> usuariosMany) {
+        this.usuariosMany = usuariosMany;
     }
 
 }
