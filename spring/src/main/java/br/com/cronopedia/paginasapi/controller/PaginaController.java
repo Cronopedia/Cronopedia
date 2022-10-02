@@ -27,7 +27,7 @@ public class PaginaController {
     // Retorna todas as páginas
     @GetMapping("/paginas")
     public List<Pagina> allPages() {
-        return (List<Pagina>) paginaRepository.findAll();
+        return (List<Pagina>) paginaRepository.findPaginasAllOrderByRelevanciaDesc();
     }
 
     // Retorna uma página com o id solicitado no parâmetro

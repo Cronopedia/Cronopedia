@@ -25,7 +25,8 @@ public interface MetodosCustomInterface {
     Pagina findOnePaginaOrderByRelevancia();
 
     // // Query para buscar Usuário no Banco pelo nickname
-    // Usuario findUsuarioByNickname(@Param("nick") String nickname);
+    @Query(value = "SELECT * FROM usuario WHERE nickname = :nickParametro", nativeQuery = true)
+    Usuario findUsuarioByNickname(@Param("nickParametro") String nickname);
 
     // // Query para buscar o histórico de edições de uma Página
     // Historico findHistoricoByPagina(@Param("paginaID") Long paginaID);
