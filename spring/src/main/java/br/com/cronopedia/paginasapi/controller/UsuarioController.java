@@ -31,7 +31,8 @@ public class UsuarioController {
         usuarioRepository.save(usuario);
     }
 
-    // Utilizando o Response Entity para tratar os status e facilitar a exibição no Front-End
+    // Utilizando o Response Entity para tratar os status e facilitar a exibição no
+    // Front-End
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, Object> dados) {
@@ -73,7 +74,6 @@ public class UsuarioController {
 
     }
 
-
     @GetMapping("/usuario/{id}")
     public ResponseEntity<?> getDados(@PathVariable("id") Long id) {
         try {
@@ -95,6 +95,13 @@ public class UsuarioController {
         return false;
     }
 
-    // Rota de verificação de disponibilidade do nickname
-    GetMapping("usuario")
+    // Rota de verificação de disponibilidade do nickname (true: disponível)
+    @GetMapping("/nickname/check/{name}")
+    public boolean checkNick(@PathVariable("name") String name) {
+        if (usuarioRepository.existByNickname(name)) {
+            return false;
+        }
+
+        return true;
+    }
 }
