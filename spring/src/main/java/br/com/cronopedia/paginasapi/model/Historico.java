@@ -17,7 +17,7 @@ public class Historico {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long ID;
 
-    private Date datAlteracao;
+    private Date dataAlteracao;
     private String editorNickname;
     private String descricao;
 
@@ -48,12 +48,12 @@ public class Historico {
         this.pagina = pagina;
     }
 
-    public Date getDatAlteracao() {
-        return datAlteracao;
+    public Date getDataAlteracao() {
+        return dataAlteracao;
     }
 
-    public void setDatAlteracao(Date datAlteracao) {
-        this.datAlteracao = datAlteracao;
+    public void setDataAlteracao(Date dataAlteracao) {
+        this.dataAlteracao = dataAlteracao;
     }
 
     public String getEditorNickname() {

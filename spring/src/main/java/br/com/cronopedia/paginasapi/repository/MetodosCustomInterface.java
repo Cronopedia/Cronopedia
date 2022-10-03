@@ -33,6 +33,7 @@ public interface MetodosCustomInterface {
     @Query("SELECT CASE WHEN COUNT(u)> 0 THEN true ELSE false END FROM usuario u WHERE u.nickname LIKE :nickname")
     Boolean existByNickname(@PathVariable("nickParametro") String nickname);
 
-    // // Query para buscar o histórico de edições de uma Página
-    // Historico findHistoricoByPaginaID(@Param("paginaID") Long paginaID);
+    // Query para buscar o histórico de edições de uma Página
+    @Query(value = "SELECT * FROM histoico WHERE pagina_id = :paginaID", nativeQuery = true)
+    List<Historico> findHistoricoByPaginaID(@Param("paginaID") Long paginaID);
 }
