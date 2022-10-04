@@ -60,16 +60,17 @@ public class UsuarioController {
                     return new ResponseEntity<>(match, null, HttpStatus.OK);
                 } else {
                     // Response - Credenciais invalidas (207)
-                    return new ResponseEntity<>(match, null, HttpStatus.MULTI_STATUS);
+                    return new ResponseEntity<>(match, null, HttpStatus.MULTI_STATUS); // LEMBRAR DE TRATAR NO FRONT-END 
                 }
 
-            } catch (Exception e) {
+            } catch (NoSuchElementException e) {
+
                 // Response - Não encontrado (404)
-                return new ResponseEntity<>(false, null, HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>(false, null, HttpStatus.NOT_FOUND); // LEMBRAR DE TRATAR NO FRONT-END
             }
         } catch (JSONException e) {
             // Response - Erro nas credenciais (400)
-            return new ResponseEntity<>(false, null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(false, null, HttpStatus.BAD_REQUEST); // LEMBRAR DE TRATAR NO FRONT-END
         }
 
     }
