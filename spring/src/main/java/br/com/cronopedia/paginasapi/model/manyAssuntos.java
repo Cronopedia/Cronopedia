@@ -16,6 +16,7 @@ public class manyAssuntos {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long ID;
     private String tag;
+    private float relevancia;
 
     @ManyToMany(mappedBy = "assuntosMany")
     @JsonBackReference
@@ -38,6 +39,14 @@ public class manyAssuntos {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public float getRelevancia() {
+        return relevancia;
+    }
+
+    public void setRelevancia(String relevancia) {
+        this.relevancia = relevancia;
     }
 
     public List<Pagina> getPaginas() {

@@ -56,19 +56,19 @@ public class UsuarioController {
                 boolean match = autenticar(senhaDoBanco, senhaDoCandidato);
 
                 if (match) {
-                    // Login realizado com sucesso (200)
+                    // Response - Login realizado com sucesso (200)
                     return new ResponseEntity<>(match, null, HttpStatus.OK);
                 } else {
-                    // Credenciais invalidas (207)
+                    // Response - Credenciais invalidas (207)
                     return new ResponseEntity<>(match, null, HttpStatus.MULTI_STATUS);
                 }
 
             } catch (Exception e) {
-                // Não encontrado (404)
+                // Response - Não encontrado (404)
                 return new ResponseEntity<>(false, null, HttpStatus.NOT_FOUND);
             }
         } catch (JSONException e) {
-            // Erro nas credenciais (400)
+            // Response - Erro nas credenciais (400)
             return new ResponseEntity<>(false, null, HttpStatus.BAD_REQUEST);
         }
 
@@ -78,10 +78,11 @@ public class UsuarioController {
     public ResponseEntity<?> getDados(@PathVariable("id") Long id) {
         try {
             Usuario u = usuarioRepository.findById(id).get();
-            // Tudo certo (200)
+            
+            // Response - Tudo certo (200)
             return new ResponseEntity<>(u, null, HttpStatus.OK);
         } catch (Exception e) {
-            // Não encontrado (404)
+            // Response - Não encontrado (404)
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND); // LEMBRAR DE TRATAR NO FRONT-END
         }
     }
@@ -96,12 +97,12 @@ public class UsuarioController {
     }
 
     // Rota de verificação de disponibilidade do nickname (true: disponível)
-    @GetMapping("/nickname/check/{name}")
-    public boolean checkNick(@PathVariable("name") String name) {
-        if (usuarioRepository.existByNickname(name)) {
-            return false;
-        }
+    // @GetMapping("/nickname/check/{name}")
+    // public boolean checkNick(@PathVariable("name") String name) {
+    //     if (usuarioRepository.existByNickname(name)) {
+    //         return false;
+    //     }
 
-        return true;
-    }
+    //     return true;
+    // }
 }

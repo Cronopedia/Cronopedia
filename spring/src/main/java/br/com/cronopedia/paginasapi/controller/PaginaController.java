@@ -1,6 +1,9 @@
 package br.com.cronopedia.paginasapi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.cronopedia.paginasapi.model.Pagina;
 import br.com.cronopedia.paginasapi.repository.PaginaRepository;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @CrossOrigin
 @RestController
@@ -32,25 +36,56 @@ public class PaginaController {
 
     // Retorna uma página com o id solicitado no parâmetro
     @GetMapping("/paginas/id/{id}")
-    public Pagina idPage(@PathVariable("id") Long id) {
+    public ResponseEntity<?> idPage(@PathVariable("id") Long id) {
         try {
-            Pagina p = paginaRepository.findById(id).stream().toList().get(0);
-            return p;
-        } catch (IndexOutOfBoundsException e) {
-            return Pagina.voidPage();
+            Pagina p = paginaRepository.findById(id).get();
+
+            // Página encontrada (200)
+            return new ResponseEntity<>(p, null, HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            // Header
+            HttpHeaders header = new HttpHeaders();
+            header.add("mensagem", "Página não encontrada");
+
+            // Response - Página não encontrada (404)
+            return new ResponseEntity<>(null, header, HttpStatus.NOT_FOUND); // LEMBRAR DE TRATAR NO FRONT-END
         }
     }
 
     // Retorna todas as páginas com o assunto passado no parâmetro
     @GetMapping("/paginas/{assunto}")
-    public List<Pagina> assuntoPage(@PathVariable("assunto") String assunto) {
-        return paginaRepository.findPaginasByAssuntos(assunto);
+    public ResponseEntity<?> assuntoPage(@PathVariable("assunto") String assunto) {
+        try{
+            List<Pagina> p = paginaRepository.findPaginasByAssuntos(assunto);
+
+            // Response - Páginas encontradas (200)
+            return new ResponseEntity<>(p, null, HttpStatus.OK);
+        }catch(NoSuchElementException e){
+            // Header
+            HttpHeaders header = new HttpHeaders();
+            header.add("mensagem", "Não foi encontrada nenhuma página");
+
+            // Response - Páginas não encontradas (404)
+            return new ResponseEntity<>(null, null, HttpStatus.NOT_FOUND); // LEMBRAR DE TRATAR NO FRONT-END
+        }
     }
 
     // Adiciona uma nova página ao banco
     @PostMapping("/paginas/add")
-    public void addPage(@RequestBody Pagina pagina) {
-        paginaRepository.save(pagina);
+    public ResponseEntity<?> addPage(@RequestBody Pagina pagina) {
+        try {
+            paginaRepository.save(pagina);
+
+            // Response - (200)
+            return new ResponseEntity<>(null, null, HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            // Header
+            HttpHeaders header = new HttpHeaders();
+            header.add("mensagem", "Entidade inválida");
+
+            // Response - Entidade inválida (406)
+            return new ResponseEntity<>(null, header, HttpStatus.NOT_ACCEPTABLE); // LEMBRAR DE TRATAR NO FRONT-END
+        }
     }
 
     // Adiciona varias páginas ao banco (para testes)
@@ -62,13 +97,28 @@ public class PaginaController {
     // Atualizando um campo de uma página
     @PutMapping("/paginas/atualizar/{id}")
     public void update(@RequestBody Pagina pagina) {
-        paginaRepository.save(pagina);
+        paginaRepository.save(pagina); // -> Criar uma query replace (irá fazer a substituição dos campos exeto dos ids)
     }
 
     // Deletando uma página
     @DeleteMapping("paginas/deletar/{id}")
-    public void delete(@PathVariable("id") Long id) {
-        paginaRepository.deleteById(id);
+    public ResponseEntity<?> delete(@PathVariable("id") Long id) {
+        try {
+            paginaRepository.deleteById(id);
+            
+            // Header
+            HttpHeaders header = new HttpHeaders();
+
+            // Response - Tudo certo (200)
+            return new ResponseEntity<>(null, header, HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            // Header
+            HttpHeaders header = new HttpHeaders();
+            header.add("mensagem", "Entidade inválida");
+
+            // Response - A Entidade não pode ser deletada (406)
+            return new ResponseEntity<>(null, header, HttpStatus.NOT_ACCEPTABLE); // LEMBRAR DE TRATAR NO FRONT-END
+        }
     }
 
     // @GetMapping("/paginas/top")

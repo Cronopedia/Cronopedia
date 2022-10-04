@@ -1,6 +1,7 @@
 package br.com.cronopedia.paginasapi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,22 +25,68 @@ public class HistoricoController {
 
     // Endpoints
 
-    // Registrando um novo histórico no Banco
+    // Registrando uma nova alteração no Banco
     @PostMapping("/historico")
-    public void saveHistorico(@RequestBody Historico historico) {
-        historicoRepository.save(historico);
+    public ResponseEntity<?> saveHistorico(@RequestBody Historico historico) {
+        try {
+            historicoRepository.save(historico);
+            
+            // Header
+            HttpHeaders header = new HttpHeaders();
+
+            // Response (200)
+            return new ResponseEntity<>(null, header, HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+
+            // Header
+            HttpHeaders header = new HttpHeaders();
+            header.add("mensagem", "Entidade inválida");
+
+            // Response - Entidade inválida (406)
+            return new ResponseEntity<>(null, header, HttpStatus.NOT_ACCEPTABLE); // LEMBRAR DE TRATAR NO FRONT-END
+        }
     }
 
-    // Encontrando um histórico de acordo com
+    // Encontrando o histórico de alterações de acordo com o ID da Página
     @GetMapping("/historico/pagina/{pageID}")
-    public ResponseEntity<?> getHistorico(@PathVariable("pageID") Long pageID) {
+    public ResponseEntity<?> getHistoricoByPage(@PathVariable("pageID") Long pageID) {
         try {
-            // Histórico encontrado (200)
             List<Historico> h = historicoRepository.findHistoricoByPaginaID(pageID);
-            return new ResponseEntity<>(h, null, HttpStatus.OK);
+
+            // Header
+            HttpHeaders header = new HttpHeaders();
+
+            // Response - Histórico encontrado (200)
+            return new ResponseEntity<>(h, header, HttpStatus.OK);
         } catch (Exception e) {
-            // Não encontrado (404)
-            return new ResponseEntity<>(null, null, HttpStatus.NOT_FOUND); // Tratar no front-end
+            // Header
+            HttpHeaders header = new HttpHeaders();
+            header.add("mensagem", "Histórico não encontrado");
+            
+            // Response - Não encontrado (404)
+            return new ResponseEntity<>(null, header, HttpStatus.NOT_FOUND); // LEMBRAR DE TRATAR NO FRONT-END
+        }
+    }
+
+    // Encontrando uma alteração de acordo com o ID
+    @GetMapping("/historico/pagina/{historicoID}")
+    public ResponseEntity<?> getHistoricoByID(@PathVariable("historicoID") Long historicoID) {
+        try {
+            Historico h = historicoRepository.findById(historicoID).get();
+
+            // Header
+            HttpHeaders header = new HttpHeaders();
+            header.add("mensagem", "Página não encontrada");
+
+            // Response - Alteração encontrada (200)
+            return new ResponseEntity<>(h, header, HttpStatus.OK);
+        } catch (Exception e) {
+            // Header
+            HttpHeaders header = new HttpHeaders();
+            header.add("mensagem", "Alteração não encontrada");
+
+            // Response - Não encontrada (404)
+            return new ResponseEntity<>(null, header, HttpStatus.NOT_FOUND); // LEMBRAR DE TRATAR NO FRONT-END
         }
     }
 }

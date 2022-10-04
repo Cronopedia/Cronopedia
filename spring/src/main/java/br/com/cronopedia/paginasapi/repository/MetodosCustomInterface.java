@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import br.com.cronopedia.paginasapi.model.Historico;
 import br.com.cronopedia.paginasapi.model.Pagina;
@@ -31,7 +30,7 @@ public interface MetodosCustomInterface {
 
     // Query para verificar se um nickname está registrado no Banco
     @Query("SELECT CASE WHEN COUNT(u)> 0 THEN true ELSE false END FROM usuario u WHERE u.nickname LIKE :nickname")
-    Boolean existByNickname(@PathVariable("nickParametro") String nickname);
+    Boolean existByNickname(@Param("nickParametro") String nickname);
 
     // Query para buscar o histórico de edições de uma Página
     @Query(value = "SELECT * FROM histoico WHERE pagina_id = :paginaID", nativeQuery = true)
