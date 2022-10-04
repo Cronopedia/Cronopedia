@@ -556,7 +556,7 @@
   }
   
   
-  
+  00427D
   
   .sidenav > .active > a {
     position: relative;
@@ -711,19 +711,19 @@
     "assuntosMany" : {
       "type" : "array",
       "items" : {
-        "$ref" : "#/components/schemas/paginaadd_assuntosMany"
+        "$ref" : "#/components/schemas/paginasadd_assuntosMany"
       }
     },
     "assuntos" : {
       "type" : "array",
       "items" : {
-        "$ref" : "#/components/schemas/paginaadd_assuntosMany"
+        "$ref" : "#/components/schemas/paginasadd_assuntosMany"
       }
     },
     "imagensURL" : {
       "type" : "array",
       "items" : {
-        "$ref" : "#/components/schemas/paginaadd_imagensURL"
+        "$ref" : "#/components/schemas/paginasadd_imagensURL"
       }
     }
   }
@@ -774,13 +774,22 @@
     "imagensURL" : {
       "type" : "array",
       "items" : {
-        "$ref" : "#/components/schemas/paginaadd_imagensURL"
+        "$ref" : "#/components/schemas/paginasadd_imagensURL"
       }
     }
   },
   "description" : "classe java"
 };
-            defs["pagina_add_body"] = {
+            defs["pagina_assuntosMany"] = {
+  "type" : "object",
+  "properties" : {
+    "tag" : {
+      "type" : "string",
+      "example" : "Cruzadas"
+    }
+  }
+};
+            defs["paginas_add_body"] = {
   "type" : "object",
   "properties" : {
     "titulo" : {
@@ -802,33 +811,24 @@
     "assuntosMany" : {
       "type" : "array",
       "items" : {
-        "$ref" : "#/components/schemas/paginaadd_assuntosMany"
+        "$ref" : "#/components/schemas/paginasadd_assuntosMany"
       }
     },
     "assuntos" : {
       "type" : "array",
       "items" : {
-        "$ref" : "#/components/schemas/paginaadd_assuntosMany"
+        "$ref" : "#/components/schemas/paginasadd_assuntosMany"
       }
     },
     "imagensURL" : {
       "type" : "array",
       "items" : {
-        "$ref" : "#/components/schemas/paginaadd_imagensURL"
+        "$ref" : "#/components/schemas/paginasadd_imagensURL"
       }
     }
   }
 };
-            defs["pagina_assuntosMany"] = {
-  "type" : "object",
-  "properties" : {
-    "tag" : {
-      "type" : "string",
-      "example" : "Cruzadas"
-    }
-  }
-};
-            defs["paginaadd_assuntosMany"] = {
+            defs["paginasadd_assuntosMany"] = {
   "type" : "object",
   "properties" : {
     "tag" : {
@@ -836,7 +836,7 @@
     }
   }
 };
-            defs["paginaadd_imagensURL"] = {
+            defs["paginasadd_imagensURL"] = {
   "type" : "object",
   "properties" : {
     "url" : {
@@ -863,23 +863,23 @@
             <li class="nav-fixed nav-header active" data-group="_"><a href="#api-_">API Summary</a></li>
 
                   <li class="nav-header" data-group="Pginas"><a href="#api-Pginas">API Methods - Pginas</a></li>
-                    <li data-group="Pginas" data-name="paginaAddPost" class="">
-                      <a href="#api-Pginas-paginaAddPost">paginaAddPost</a>
-                    </li>
-                    <li data-group="Pginas" data-name="paginaAtualizarIdPut" class="">
-                      <a href="#api-Pginas-paginaAtualizarIdPut">paginaAtualizarIdPut</a>
-                    </li>
-                    <li data-group="Pginas" data-name="paginaDeletarIdDelete" class="">
-                      <a href="#api-Pginas-paginaDeletarIdDelete">paginaDeletarIdDelete</a>
-                    </li>
-                    <li data-group="Pginas" data-name="paginaIdIdGet" class="">
-                      <a href="#api-Pginas-paginaIdIdGet">paginaIdIdGet</a>
+                    <li data-group="Pginas" data-name="paginasAddPost" class="">
+                      <a href="#api-Pginas-paginasAddPost">paginasAddPost</a>
                     </li>
                     <li data-group="Pginas" data-name="paginasAssuntoGet" class="">
                       <a href="#api-Pginas-paginasAssuntoGet">paginasAssuntoGet</a>
                     </li>
+                    <li data-group="Pginas" data-name="paginasAtualizarIdPut" class="">
+                      <a href="#api-Pginas-paginasAtualizarIdPut">paginasAtualizarIdPut</a>
+                    </li>
+                    <li data-group="Pginas" data-name="paginasDeletarIdDelete" class="">
+                      <a href="#api-Pginas-paginasDeletarIdDelete">paginasDeletarIdDelete</a>
+                    </li>
                     <li data-group="Pginas" data-name="paginasGet" class="">
                       <a href="#api-Pginas-paginasGet">paginasGet</a>
+                    </li>
+                    <li data-group="Pginas" data-name="paginasIdIdGet" class="">
+                      <a href="#api-Pginas-paginasIdIdGet">paginasIdIdGet</a>
                     </li>
           </ul>
         </nav>
@@ -902,10 +902,10 @@
         <div id="sections">
                 <section id="api-Pginas">
                   <h1>Pginas</h1>
-                    <div id="api-Pginas-paginaAddPost">
-                      <article id="api-Pginas-paginaAddPost-0" data-group="User" data-name="paginaAddPost" data-version="0">
+                    <div id="api-Pginas-paginasAddPost">
+                      <article id="api-Pginas-paginasAddPost-0" data-group="User" data-name="paginasAddPost" data-version="0">
                         <div class="pull-left">
-                          <h1>paginaAddPost</h1>
+                          <h1>paginasAddPost</h1>
                           <p></p>
                         </div>
                         <div class="pull-right"></div>
@@ -914,31 +914,31 @@
                         <p class="marked">Insere uma página no Banco de Dados.</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/pagina/add</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/paginas/add</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Pginas-paginaAddPost-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaAddPost-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaAddPost-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Pginas-paginaAddPost-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Pginas-paginaAddPost-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaAddPost-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Pginas-paginaAddPost-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Pginas-paginaAddPost-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaAddPost-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaAddPost-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaAddPost-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Pginas-paginasAddPost-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasAddPost-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasAddPost-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Pginas-paginasAddPost-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Pginas-paginasAddPost-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasAddPost-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Pginas-paginasAddPost-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Pginas-paginasAddPost-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasAddPost-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasAddPost-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasAddPost-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Pginas-paginaAddPost-0-curl">
+                          <div class="tab-pane active" id="examples-Pginas-paginasAddPost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
 -H "Content-Type: application/json"\
-"https://virtserver.swaggerhub.com/Cronopedia/Crono/1.0.0/pagina/add"</code></pre>
+"https://virtserver.swaggerhub.com/Cronopedia/Crono/1.0.0/paginas/add"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Pginas-paginaAddPost-0-java">
+                          <div class="tab-pane" id="examples-Pginas-paginasAddPost-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -952,44 +952,44 @@ public class PginasApiExample {
     public static void main(String[] args) {
         
         PginasApi apiInstance = new PginasApi();
-        Pagina_add_body body = ; // Pagina_add_body | 
+        Paginas_add_body body = ; // Paginas_add_body | 
         try {
-            apiInstance.paginaAddPost(body);
+            apiInstance.paginasAddPost(body);
         } catch (ApiException e) {
-            System.err.println("Exception when calling PginasApi#paginaAddPost");
+            System.err.println("Exception when calling PginasApi#paginasAddPost");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Pginas-paginaAddPost-0-android">
+                          <div class="tab-pane" id="examples-Pginas-paginasAddPost-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PginasApi;
 
 public class PginasApiExample {
 
     public static void main(String[] args) {
         PginasApi apiInstance = new PginasApi();
-        Pagina_add_body body = ; // Pagina_add_body | 
+        Paginas_add_body body = ; // Paginas_add_body | 
         try {
-            apiInstance.paginaAddPost(body);
+            apiInstance.paginasAddPost(body);
         } catch (ApiException e) {
-            System.err.println("Exception when calling PginasApi#paginaAddPost");
+            System.err.println("Exception when calling PginasApi#paginasAddPost");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Pginas-paginaAddPost-0-groovy">
+  <div class="tab-pane" id="examples-Pginas-paginasAddPost-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Pginas-paginaAddPost-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Pagina_add_body *body = ; // 
+                            <div class="tab-pane" id="examples-Pginas-paginasAddPost-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Paginas_add_body *body = ; // 
 
 PginasApi *apiInstance = [[PginasApi alloc] init];
 
-[apiInstance paginaAddPostWith:body
+[apiInstance paginasAddPostWith:body
               completionHandler: ^(NSError* error) {
                             if (error) {
                                 NSLog(@"Error: %@", error);
@@ -998,11 +998,11 @@ PginasApi *apiInstance = [[PginasApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Pginas-paginaAddPost-0-javascript">
+                            <div class="tab-pane" id="examples-Pginas-paginasAddPost-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var CronopdiaApi = require('cronopdia_api');
 
 var api = new CronopdiaApi.PginasApi()
-var body = ; // {{Pagina_add_body}} 
+var body = ; // {{Paginas_add_body}} 
 
 var callback = function(error, data, response) {
   if (error) {
@@ -1011,14 +1011,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.paginaAddPost(body, callback);
+api.paginasAddPost(body, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Pginas-paginaAddPost-0-angular">
+                            <!--<div class="tab-pane" id="examples-Pginas-paginasAddPost-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Pginas-paginaAddPost-0-csharp">
+                            <div class="tab-pane" id="examples-Pginas-paginasAddPost-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -1027,21 +1027,21 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class paginaAddPostExample
+    public class paginasAddPostExample
     {
         public void main()
         {
 
             var apiInstance = new PginasApi();
-            var body = new Pagina_add_body(); // Pagina_add_body | 
+            var body = new Paginas_add_body(); // Paginas_add_body | 
 
             try
             {
-                apiInstance.paginaAddPost(body);
+                apiInstance.paginasAddPost(body);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling PginasApi.paginaAddPost: " + e.Message );
+                Debug.Print("Exception when calling PginasApi.paginasAddPost: " + e.Message );
             }
         }
     }
@@ -1049,38 +1049,38 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Pginas-paginaAddPost-0-php">
+                            <div class="tab-pane" id="examples-Pginas-paginasAddPost-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiPginasApi();
-$body = ; // Pagina_add_body | 
+$body = ; // Paginas_add_body | 
 
 try {
-    $api_instance->paginaAddPost($body);
+    $api_instance->paginasAddPost($body);
 } catch (Exception $e) {
-    echo 'Exception when calling PginasApi->paginaAddPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PginasApi->paginasAddPost: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Pginas-paginaAddPost-0-perl">
+                            <div class="tab-pane" id="examples-Pginas-paginasAddPost-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::PginasApi;
 
 my $api_instance = WWW::SwaggerClient::PginasApi->new();
-my $body = WWW::SwaggerClient::Object::Pagina_add_body->new(); # Pagina_add_body | 
+my $body = WWW::SwaggerClient::Object::Paginas_add_body->new(); # Paginas_add_body | 
 
 eval { 
-    $api_instance->paginaAddPost(body => $body);
+    $api_instance->paginasAddPost(body => $body);
 };
 if ($@) {
-    warn "Exception when calling PginasApi->paginaAddPost: $@\n";
+    warn "Exception when calling PginasApi->paginasAddPost: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Pginas-paginaAddPost-0-python">
+                            <div class="tab-pane" id="examples-Pginas-paginasAddPost-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -1089,12 +1089,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.PginasApi()
-body =  # Pagina_add_body | 
+body =  # Paginas_add_body | 
 
 try: 
-    api_instance.pagina_add_post(body)
+    api_instance.paginas_add_post(body)
 except ApiException as e:
-    print("Exception when calling PginasApi->paginaAddPost: %s\n" % e)</code></pre>
+    print("Exception when calling PginasApi->paginasAddPost: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -1118,7 +1118,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/pagina_add_body"
+        "$ref" : "#/components/schemas/paginas_add_body"
       }
     }
   },
@@ -1136,12 +1136,12 @@ except ApiException as e:
                                   }
                                 
                                   var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-                                  var result = $('#d2e199_paginaAddPost_body');
+                                  var result = $('#d2e199_paginasAddPost_body');
                                   result.empty();
                                   result.append(view.render());
                                 });
                                 </script>
-                                <div id="d2e199_paginaAddPost_body"></div>
+                                <div id="d2e199_paginasAddPost_body"></div>
                                 </td>
                                 </tr>
                             </table>
@@ -1158,894 +1158,6 @@ except ApiException as e:
                             </div>
 
                             <h3> Status: 400 - parâmetros inválidos. </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-Pginas-paginaAtualizarIdPut">
-                      <article id="api-Pginas-paginaAtualizarIdPut-0" data-group="User" data-name="paginaAtualizarIdPut" data-version="0">
-                        <div class="pull-left">
-                          <h1>paginaAtualizarIdPut</h1>
-                          <p></p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked">Atualizar as informações de uma página.</p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/pagina/atualizar/{id}</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Pginas-paginaAtualizarIdPut-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaAtualizarIdPut-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaAtualizarIdPut-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Pginas-paginaAtualizarIdPut-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Pginas-paginaAtualizarIdPut-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaAtualizarIdPut-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Pginas-paginaAtualizarIdPut-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Pginas-paginaAtualizarIdPut-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaAtualizarIdPut-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaAtualizarIdPut-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaAtualizarIdPut-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Pginas-paginaAtualizarIdPut-0-curl">
-                           <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
--H "Content-Type: application/json"\
-"https://virtserver.swaggerhub.com/Cronopedia/Crono/1.0.0/pagina/atualizar/{id}"</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Pginas-paginaAtualizarIdPut-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.PginasApi;
-
-import java.io.File;
-import java.util.*;
-
-public class PginasApiExample {
-
-    public static void main(String[] args) {
-        
-        PginasApi apiInstance = new PginasApi();
-        Atualizar_id_body body = ; // Atualizar_id_body | 
-        BigDecimal id = 1.2; // BigDecimal | ID da página que deseja deletar.
-        try {
-            apiInstance.paginaAtualizarIdPut(body, id);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling PginasApi#paginaAtualizarIdPut");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Pginas-paginaAtualizarIdPut-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PginasApi;
-
-public class PginasApiExample {
-
-    public static void main(String[] args) {
-        PginasApi apiInstance = new PginasApi();
-        Atualizar_id_body body = ; // Atualizar_id_body | 
-        BigDecimal id = 1.2; // BigDecimal | ID da página que deseja deletar.
-        try {
-            apiInstance.paginaAtualizarIdPut(body, id);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling PginasApi#paginaAtualizarIdPut");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Pginas-paginaAtualizarIdPut-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Pginas-paginaAtualizarIdPut-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Atualizar_id_body *body = ; // 
-BigDecimal *id = 1.2; // ID da página que deseja deletar.
-
-PginasApi *apiInstance = [[PginasApi alloc] init];
-
-[apiInstance paginaAtualizarIdPutWith:body
-    id:id
-              completionHandler: ^(NSError* error) {
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Pginas-paginaAtualizarIdPut-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var CronopdiaApi = require('cronopdia_api');
-
-var api = new CronopdiaApi.PginasApi()
-var body = ; // {{Atualizar_id_body}} 
-var id = 1.2; // {{BigDecimal}} ID da página que deseja deletar.
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-api.paginaAtualizarIdPut(bodyid, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Pginas-paginaAtualizarIdPut-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Pginas-paginaAtualizarIdPut-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class paginaAtualizarIdPutExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new PginasApi();
-            var body = new Atualizar_id_body(); // Atualizar_id_body | 
-            var id = 1.2;  // BigDecimal | ID da página que deseja deletar.
-
-            try
-            {
-                apiInstance.paginaAtualizarIdPut(body, id);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling PginasApi.paginaAtualizarIdPut: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Pginas-paginaAtualizarIdPut-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\ApiPginasApi();
-$body = ; // Atualizar_id_body | 
-$id = 1.2; // BigDecimal | ID da página que deseja deletar.
-
-try {
-    $api_instance->paginaAtualizarIdPut($body, $id);
-} catch (Exception $e) {
-    echo 'Exception when calling PginasApi->paginaAtualizarIdPut: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Pginas-paginaAtualizarIdPut-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::PginasApi;
-
-my $api_instance = WWW::SwaggerClient::PginasApi->new();
-my $body = WWW::SwaggerClient::Object::Atualizar_id_body->new(); # Atualizar_id_body | 
-my $id = 1.2; # BigDecimal | ID da página que deseja deletar.
-
-eval { 
-    $api_instance->paginaAtualizarIdPut(body => $body, id => $id);
-};
-if ($@) {
-    warn "Exception when calling PginasApi->paginaAtualizarIdPut: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Pginas-paginaAtualizarIdPut-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.PginasApi()
-body =  # Atualizar_id_body | 
-id = 1.2 # BigDecimal | ID da página que deseja deletar.
-
-try: 
-    api_instance.pagina_atualizar_id_put(body, id)
-except ApiException as e:
-    print("Exception when calling PginasApi->paginaAtualizarIdPut: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-                            <div class="methodsubtabletitle">Path parameters</div>
-                            <table id="methodsubtable">
-                                <tr>
-                                  <th width="150px">Name</th>
-                                  <th>Description</th>
-                                </tr>
-                                  <tr><td style="width:150px;">id*</td>
-                                  <td>
-                                  
-                                  
-                                      <div id="d2e199_paginaAtualizarIdPut_id">
-                                          <div class="json-schema-view">
-                                              <div class="primitive">
-                                                  <span class="type">
-                                                      BigDecimal
-                                                  </span>
-                                                      <span class="format">
-                                                          (int64)
-                                                      </span>
-                                  
-                                                      <div class="inner description">
-                                                          ID da página que deseja deletar.
-                                                      </div>
-                                              </div>
-                                                  <div class="inner required">
-                                                      Required
-                                                  </div>
-                                          </div>
-                                      </div>
-                                  </td>
-                                  </tr>
-                            </table>
-
-
-                            <div class="methodsubtabletitle">Body parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
-                                <td>
-                                
-                                
-                                <script>
-                                $(document).ready(function() {
-                                  var schemaWrapper = {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/atualizar_id_body"
-      }
-    }
-  },
-  "required" : true
-};
-                                  var schema = schemaWrapper.content["application/json"].schema;
-                                  if (schema.$ref != null) {
-                                    schema = defsParser.$refs.get(schema.$ref);
-                                  } else {
-                                    schemaWrapper.components = {};
-                                    schemaWrapper.components.schemas = Object.assign({}, defs);
-                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                      console.log(err);
-                                    });
-                                  }
-                                
-                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-                                  var result = $('#d2e199_paginaAtualizarIdPut_body');
-                                  result.empty();
-                                  result.append(view.render());
-                                });
-                                </script>
-                                <div id="d2e199_paginaAtualizarIdPut_body"></div>
-                                </td>
-                                </tr>
-                            </table>
-
-
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - A requisição foi aceita e a página foi atualizada. </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: 401 - A requisição não foi aceita, pois o clinte não possui autenticação. (não implementado) </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: 403 - A requisição não foi aceita, pois o clinte não possui autorização. (não implementado) </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: 404 - A requisição não foi aceita, pois a página não foi encontrada. </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-Pginas-paginaDeletarIdDelete">
-                      <article id="api-Pginas-paginaDeletarIdDelete-0" data-group="User" data-name="paginaDeletarIdDelete" data-version="0">
-                        <div class="pull-left">
-                          <h1>paginaDeletarIdDelete</h1>
-                          <p></p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/pagina/deletar/{id}</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Pginas-paginaDeletarIdDelete-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaDeletarIdDelete-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaDeletarIdDelete-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Pginas-paginaDeletarIdDelete-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Pginas-paginaDeletarIdDelete-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaDeletarIdDelete-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Pginas-paginaDeletarIdDelete-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Pginas-paginaDeletarIdDelete-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaDeletarIdDelete-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaDeletarIdDelete-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaDeletarIdDelete-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Pginas-paginaDeletarIdDelete-0-curl">
-                           <pre class="prettyprint"><code class="language-bsh">curl -X DELETE\
-"https://virtserver.swaggerhub.com/Cronopedia/Crono/1.0.0/pagina/deletar/{id}"</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Pginas-paginaDeletarIdDelete-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.PginasApi;
-
-import java.io.File;
-import java.util.*;
-
-public class PginasApiExample {
-
-    public static void main(String[] args) {
-        
-        PginasApi apiInstance = new PginasApi();
-        BigDecimal id = 1.2; // BigDecimal | ID da página que deseja deletar.
-        try {
-            apiInstance.paginaDeletarIdDelete(id);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling PginasApi#paginaDeletarIdDelete");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Pginas-paginaDeletarIdDelete-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PginasApi;
-
-public class PginasApiExample {
-
-    public static void main(String[] args) {
-        PginasApi apiInstance = new PginasApi();
-        BigDecimal id = 1.2; // BigDecimal | ID da página que deseja deletar.
-        try {
-            apiInstance.paginaDeletarIdDelete(id);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling PginasApi#paginaDeletarIdDelete");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Pginas-paginaDeletarIdDelete-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Pginas-paginaDeletarIdDelete-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">BigDecimal *id = 1.2; // ID da página que deseja deletar.
-
-PginasApi *apiInstance = [[PginasApi alloc] init];
-
-[apiInstance paginaDeletarIdDeleteWith:id
-              completionHandler: ^(NSError* error) {
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Pginas-paginaDeletarIdDelete-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var CronopdiaApi = require('cronopdia_api');
-
-var api = new CronopdiaApi.PginasApi()
-var id = 1.2; // {{BigDecimal}} ID da página que deseja deletar.
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-api.paginaDeletarIdDelete(id, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Pginas-paginaDeletarIdDelete-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Pginas-paginaDeletarIdDelete-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class paginaDeletarIdDeleteExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new PginasApi();
-            var id = 1.2;  // BigDecimal | ID da página que deseja deletar.
-
-            try
-            {
-                apiInstance.paginaDeletarIdDelete(id);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling PginasApi.paginaDeletarIdDelete: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Pginas-paginaDeletarIdDelete-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\ApiPginasApi();
-$id = 1.2; // BigDecimal | ID da página que deseja deletar.
-
-try {
-    $api_instance->paginaDeletarIdDelete($id);
-} catch (Exception $e) {
-    echo 'Exception when calling PginasApi->paginaDeletarIdDelete: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Pginas-paginaDeletarIdDelete-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::PginasApi;
-
-my $api_instance = WWW::SwaggerClient::PginasApi->new();
-my $id = 1.2; # BigDecimal | ID da página que deseja deletar.
-
-eval { 
-    $api_instance->paginaDeletarIdDelete(id => $id);
-};
-if ($@) {
-    warn "Exception when calling PginasApi->paginaDeletarIdDelete: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Pginas-paginaDeletarIdDelete-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.PginasApi()
-id = 1.2 # BigDecimal | ID da página que deseja deletar.
-
-try: 
-    api_instance.pagina_deletar_id_delete(id)
-except ApiException as e:
-    print("Exception when calling PginasApi->paginaDeletarIdDelete: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-                            <div class="methodsubtabletitle">Path parameters</div>
-                            <table id="methodsubtable">
-                                <tr>
-                                  <th width="150px">Name</th>
-                                  <th>Description</th>
-                                </tr>
-                                  <tr><td style="width:150px;">id*</td>
-                                  <td>
-                                  
-                                  
-                                      <div id="d2e199_paginaDeletarIdDelete_id">
-                                          <div class="json-schema-view">
-                                              <div class="primitive">
-                                                  <span class="type">
-                                                      BigDecimal
-                                                  </span>
-                                                      <span class="format">
-                                                          (int64)
-                                                      </span>
-                                  
-                                                      <div class="inner description">
-                                                          ID da página que deseja deletar.
-                                                      </div>
-                                              </div>
-                                                  <div class="inner required">
-                                                      Required
-                                                  </div>
-                                          </div>
-                                      </div>
-                                  </td>
-                                  </tr>
-                            </table>
-
-
-
-
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - A requisição foi aceita e a página foi deletada. </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: 401 - A requisição foi aceita, mas o clinte não possui autenticação. (não implementado) </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: 403 - A requisição não foi aceita, pois o clinte não possui autorização. (não implementado) </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: 404 - A requisição não foi aceita, pois a página não foi encontrada. </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-Pginas-paginaIdIdGet">
-                      <article id="api-Pginas-paginaIdIdGet-0" data-group="User" data-name="paginaIdIdGet" data-version="0">
-                        <div class="pull-left">
-                          <h1>paginaIdIdGet</h1>
-                          <p></p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked">Busca uma página pelo ID.</p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/pagina/id/{id}</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Pginas-paginaIdIdGet-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaIdIdGet-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaIdIdGet-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Pginas-paginaIdIdGet-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Pginas-paginaIdIdGet-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaIdIdGet-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Pginas-paginaIdIdGet-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Pginas-paginaIdIdGet-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaIdIdGet-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaIdIdGet-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Pginas-paginaIdIdGet-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Pginas-paginaIdIdGet-0-curl">
-                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
--H "Accept: application/json"\
-"https://virtserver.swaggerhub.com/Cronopedia/Crono/1.0.0/pagina/id/{id}"</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Pginas-paginaIdIdGet-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.PginasApi;
-
-import java.io.File;
-import java.util.*;
-
-public class PginasApiExample {
-
-    public static void main(String[] args) {
-        
-        PginasApi apiInstance = new PginasApi();
-        BigDecimal id = 1.2; // BigDecimal | ID da página que deseja visualizar.
-        try {
-            pagina result = apiInstance.paginaIdIdGet(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling PginasApi#paginaIdIdGet");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Pginas-paginaIdIdGet-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PginasApi;
-
-public class PginasApiExample {
-
-    public static void main(String[] args) {
-        PginasApi apiInstance = new PginasApi();
-        BigDecimal id = 1.2; // BigDecimal | ID da página que deseja visualizar.
-        try {
-            pagina result = apiInstance.paginaIdIdGet(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling PginasApi#paginaIdIdGet");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Pginas-paginaIdIdGet-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Pginas-paginaIdIdGet-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">BigDecimal *id = 1.2; // ID da página que deseja visualizar.
-
-PginasApi *apiInstance = [[PginasApi alloc] init];
-
-[apiInstance paginaIdIdGetWith:id
-              completionHandler: ^(pagina output, NSError* error) {
-                            if (output) {
-                                NSLog(@"%@", output);
-                            }
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Pginas-paginaIdIdGet-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var CronopdiaApi = require('cronopdia_api');
-
-var api = new CronopdiaApi.PginasApi()
-var id = 1.2; // {{BigDecimal}} ID da página que deseja visualizar.
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.paginaIdIdGet(id, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Pginas-paginaIdIdGet-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Pginas-paginaIdIdGet-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class paginaIdIdGetExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new PginasApi();
-            var id = 1.2;  // BigDecimal | ID da página que deseja visualizar.
-
-            try
-            {
-                pagina result = apiInstance.paginaIdIdGet(id);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling PginasApi.paginaIdIdGet: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Pginas-paginaIdIdGet-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\ApiPginasApi();
-$id = 1.2; // BigDecimal | ID da página que deseja visualizar.
-
-try {
-    $result = $api_instance->paginaIdIdGet($id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PginasApi->paginaIdIdGet: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Pginas-paginaIdIdGet-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::PginasApi;
-
-my $api_instance = WWW::SwaggerClient::PginasApi->new();
-my $id = 1.2; # BigDecimal | ID da página que deseja visualizar.
-
-eval { 
-    my $result = $api_instance->paginaIdIdGet(id => $id);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling PginasApi->paginaIdIdGet: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Pginas-paginaIdIdGet-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.PginasApi()
-id = 1.2 # BigDecimal | ID da página que deseja visualizar.
-
-try: 
-    api_response = api_instance.pagina_id_id_get(id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PginasApi->paginaIdIdGet: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-                            <div class="methodsubtabletitle">Path parameters</div>
-                            <table id="methodsubtable">
-                                <tr>
-                                  <th width="150px">Name</th>
-                                  <th>Description</th>
-                                </tr>
-                                  <tr><td style="width:150px;">id*</td>
-                                  <td>
-                                  
-                                  
-                                      <div id="d2e199_paginaIdIdGet_id">
-                                          <div class="json-schema-view">
-                                              <div class="primitive">
-                                                  <span class="type">
-                                                      BigDecimal
-                                                  </span>
-                                                      <span class="format">
-                                                          (int64)
-                                                      </span>
-                                  
-                                                      <div class="inner description">
-                                                          ID da página que deseja visualizar.
-                                                      </div>
-                                              </div>
-                                                  <div class="inner required">
-                                                      Required
-                                                  </div>
-                                          </div>
-                                      </div>
-                                  </td>
-                                  </tr>
-                            </table>
-
-
-
-
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - A requisição foi aceita e retornou a página encontrada. </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-paginaIdIdGet-200-schema">Schema</a>
-                                </li>
-
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-paginaIdIdGet-200-schema">
-                                  <div id='responses-paginaIdIdGet-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = ;
-                                        var schema = schemaWrapper.content["application/json"].schema;
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else {
-                                          schemaWrapper.components = {};
-                                          schemaWrapper.components.schemas = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        //console.log(JSON.stringify(schema));
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-paginaIdIdGet-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-paginaIdIdGet-200-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-paginaIdIdGet-200-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-
-                            <h3> Status: 404 - A requisição foi aceita, mas a página não foi encontrada. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                             </ul>
@@ -2348,6 +1460,599 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
+                    <div id="api-Pginas-paginasAtualizarIdPut">
+                      <article id="api-Pginas-paginasAtualizarIdPut-0" data-group="User" data-name="paginasAtualizarIdPut" data-version="0">
+                        <div class="pull-left">
+                          <h1>paginasAtualizarIdPut</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Atualizar as informações de uma página.</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/paginas/atualizar/{id}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Pginas-paginasAtualizarIdPut-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasAtualizarIdPut-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasAtualizarIdPut-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Pginas-paginasAtualizarIdPut-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Pginas-paginasAtualizarIdPut-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasAtualizarIdPut-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Pginas-paginasAtualizarIdPut-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Pginas-paginasAtualizarIdPut-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasAtualizarIdPut-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasAtualizarIdPut-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasAtualizarIdPut-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Pginas-paginasAtualizarIdPut-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+-H "Content-Type: application/json"\
+"https://virtserver.swaggerhub.com/Cronopedia/Crono/1.0.0/paginas/atualizar/{id}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Pginas-paginasAtualizarIdPut-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.PginasApi;
+
+import java.io.File;
+import java.util.*;
+
+public class PginasApiExample {
+
+    public static void main(String[] args) {
+        
+        PginasApi apiInstance = new PginasApi();
+        Atualizar_id_body body = ; // Atualizar_id_body | 
+        BigDecimal id = 1.2; // BigDecimal | ID da página que deseja deletar.
+        try {
+            apiInstance.paginasAtualizarIdPut(body, id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PginasApi#paginasAtualizarIdPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Pginas-paginasAtualizarIdPut-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PginasApi;
+
+public class PginasApiExample {
+
+    public static void main(String[] args) {
+        PginasApi apiInstance = new PginasApi();
+        Atualizar_id_body body = ; // Atualizar_id_body | 
+        BigDecimal id = 1.2; // BigDecimal | ID da página que deseja deletar.
+        try {
+            apiInstance.paginasAtualizarIdPut(body, id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PginasApi#paginasAtualizarIdPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Pginas-paginasAtualizarIdPut-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Pginas-paginasAtualizarIdPut-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Atualizar_id_body *body = ; // 
+BigDecimal *id = 1.2; // ID da página que deseja deletar.
+
+PginasApi *apiInstance = [[PginasApi alloc] init];
+
+[apiInstance paginasAtualizarIdPutWith:body
+    id:id
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Pginas-paginasAtualizarIdPut-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var CronopdiaApi = require('cronopdia_api');
+
+var api = new CronopdiaApi.PginasApi()
+var body = ; // {{Atualizar_id_body}} 
+var id = 1.2; // {{BigDecimal}} ID da página que deseja deletar.
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.paginasAtualizarIdPut(bodyid, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Pginas-paginasAtualizarIdPut-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Pginas-paginasAtualizarIdPut-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class paginasAtualizarIdPutExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new PginasApi();
+            var body = new Atualizar_id_body(); // Atualizar_id_body | 
+            var id = 1.2;  // BigDecimal | ID da página que deseja deletar.
+
+            try
+            {
+                apiInstance.paginasAtualizarIdPut(body, id);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling PginasApi.paginasAtualizarIdPut: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Pginas-paginasAtualizarIdPut-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiPginasApi();
+$body = ; // Atualizar_id_body | 
+$id = 1.2; // BigDecimal | ID da página que deseja deletar.
+
+try {
+    $api_instance->paginasAtualizarIdPut($body, $id);
+} catch (Exception $e) {
+    echo 'Exception when calling PginasApi->paginasAtualizarIdPut: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Pginas-paginasAtualizarIdPut-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::PginasApi;
+
+my $api_instance = WWW::SwaggerClient::PginasApi->new();
+my $body = WWW::SwaggerClient::Object::Atualizar_id_body->new(); # Atualizar_id_body | 
+my $id = 1.2; # BigDecimal | ID da página que deseja deletar.
+
+eval { 
+    $api_instance->paginasAtualizarIdPut(body => $body, id => $id);
+};
+if ($@) {
+    warn "Exception when calling PginasApi->paginasAtualizarIdPut: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Pginas-paginasAtualizarIdPut-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.PginasApi()
+body =  # Atualizar_id_body | 
+id = 1.2 # BigDecimal | ID da página que deseja deletar.
+
+try: 
+    api_instance.paginas_atualizar_id_put(body, id)
+except ApiException as e:
+    print("Exception when calling PginasApi->paginasAtualizarIdPut: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_paginasAtualizarIdPut_id">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      BigDecimal
+                                                  </span>
+                                                      <span class="format">
+                                                          (int64)
+                                                      </span>
+                                  
+                                                      <div class="inner description">
+                                                          ID da página que deseja deletar.
+                                                      </div>
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = {
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/atualizar_id_body"
+      }
+    }
+  },
+  "required" : true
+};
+                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.components = {};
+                                    schemaWrapper.components.schemas = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_paginasAtualizarIdPut_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_paginasAtualizarIdPut_body"></div>
+                                </td>
+                                </tr>
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - A requisição foi aceita e a página foi atualizada. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 401 - A requisição não foi aceita, pois o clinte não possui autenticação. (não implementado) </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 403 - A requisição não foi aceita, pois o clinte não possui autorização. (não implementado) </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 404 - A requisição não foi aceita, pois a página não foi encontrada. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Pginas-paginasDeletarIdDelete">
+                      <article id="api-Pginas-paginasDeletarIdDelete-0" data-group="User" data-name="paginasDeletarIdDelete" data-version="0">
+                        <div class="pull-left">
+                          <h1>paginasDeletarIdDelete</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/paginas/deletar/{id}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Pginas-paginasDeletarIdDelete-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasDeletarIdDelete-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasDeletarIdDelete-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Pginas-paginasDeletarIdDelete-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Pginas-paginasDeletarIdDelete-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasDeletarIdDelete-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Pginas-paginasDeletarIdDelete-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Pginas-paginasDeletarIdDelete-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasDeletarIdDelete-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasDeletarIdDelete-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasDeletarIdDelete-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Pginas-paginasDeletarIdDelete-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X DELETE\
+"https://virtserver.swaggerhub.com/Cronopedia/Crono/1.0.0/paginas/deletar/{id}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Pginas-paginasDeletarIdDelete-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.PginasApi;
+
+import java.io.File;
+import java.util.*;
+
+public class PginasApiExample {
+
+    public static void main(String[] args) {
+        
+        PginasApi apiInstance = new PginasApi();
+        BigDecimal id = 1.2; // BigDecimal | ID da página que deseja deletar.
+        try {
+            apiInstance.paginasDeletarIdDelete(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PginasApi#paginasDeletarIdDelete");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Pginas-paginasDeletarIdDelete-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PginasApi;
+
+public class PginasApiExample {
+
+    public static void main(String[] args) {
+        PginasApi apiInstance = new PginasApi();
+        BigDecimal id = 1.2; // BigDecimal | ID da página que deseja deletar.
+        try {
+            apiInstance.paginasDeletarIdDelete(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PginasApi#paginasDeletarIdDelete");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Pginas-paginasDeletarIdDelete-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Pginas-paginasDeletarIdDelete-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">BigDecimal *id = 1.2; // ID da página que deseja deletar.
+
+PginasApi *apiInstance = [[PginasApi alloc] init];
+
+[apiInstance paginasDeletarIdDeleteWith:id
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Pginas-paginasDeletarIdDelete-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var CronopdiaApi = require('cronopdia_api');
+
+var api = new CronopdiaApi.PginasApi()
+var id = 1.2; // {{BigDecimal}} ID da página que deseja deletar.
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.paginasDeletarIdDelete(id, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Pginas-paginasDeletarIdDelete-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Pginas-paginasDeletarIdDelete-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class paginasDeletarIdDeleteExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new PginasApi();
+            var id = 1.2;  // BigDecimal | ID da página que deseja deletar.
+
+            try
+            {
+                apiInstance.paginasDeletarIdDelete(id);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling PginasApi.paginasDeletarIdDelete: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Pginas-paginasDeletarIdDelete-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiPginasApi();
+$id = 1.2; // BigDecimal | ID da página que deseja deletar.
+
+try {
+    $api_instance->paginasDeletarIdDelete($id);
+} catch (Exception $e) {
+    echo 'Exception when calling PginasApi->paginasDeletarIdDelete: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Pginas-paginasDeletarIdDelete-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::PginasApi;
+
+my $api_instance = WWW::SwaggerClient::PginasApi->new();
+my $id = 1.2; # BigDecimal | ID da página que deseja deletar.
+
+eval { 
+    $api_instance->paginasDeletarIdDelete(id => $id);
+};
+if ($@) {
+    warn "Exception when calling PginasApi->paginasDeletarIdDelete: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Pginas-paginasDeletarIdDelete-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.PginasApi()
+id = 1.2 # BigDecimal | ID da página que deseja deletar.
+
+try: 
+    api_instance.paginas_deletar_id_delete(id)
+except ApiException as e:
+    print("Exception when calling PginasApi->paginasDeletarIdDelete: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_paginasDeletarIdDelete_id">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      BigDecimal
+                                                  </span>
+                                                      <span class="format">
+                                                          (int64)
+                                                      </span>
+                                  
+                                                      <div class="inner description">
+                                                          ID da página que deseja deletar.
+                                                      </div>
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - A requisição foi aceita e a página foi deletada. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 401 - A requisição foi aceita, mas o clinte não possui autenticação. (não implementado) </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 403 - A requisição não foi aceita, pois o clinte não possui autorização. (não implementado) </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 404 - A requisição não foi aceita, pois a página não foi encontrada. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-Pginas-paginasGet">
                       <article id="api-Pginas-paginasGet-0" data-group="User" data-name="paginasGet" data-version="0">
                         <div class="pull-left">
@@ -2592,6 +2297,301 @@ except ApiException as e:
                             </div>
 
                             <h3> Status: 400 - parâmetros inválidos. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Pginas-paginasIdIdGet">
+                      <article id="api-Pginas-paginasIdIdGet-0" data-group="User" data-name="paginasIdIdGet" data-version="0">
+                        <div class="pull-left">
+                          <h1>paginasIdIdGet</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Busca uma página pelo ID.</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/paginas/id/{id}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Pginas-paginasIdIdGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasIdIdGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasIdIdGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Pginas-paginasIdIdGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Pginas-paginasIdIdGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasIdIdGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Pginas-paginasIdIdGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Pginas-paginasIdIdGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasIdIdGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasIdIdGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Pginas-paginasIdIdGet-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Pginas-paginasIdIdGet-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+-H "Accept: application/json"\
+"https://virtserver.swaggerhub.com/Cronopedia/Crono/1.0.0/paginas/id/{id}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Pginas-paginasIdIdGet-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.PginasApi;
+
+import java.io.File;
+import java.util.*;
+
+public class PginasApiExample {
+
+    public static void main(String[] args) {
+        
+        PginasApi apiInstance = new PginasApi();
+        BigDecimal id = 1.2; // BigDecimal | ID da página que deseja visualizar.
+        try {
+            pagina result = apiInstance.paginasIdIdGet(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PginasApi#paginasIdIdGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Pginas-paginasIdIdGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PginasApi;
+
+public class PginasApiExample {
+
+    public static void main(String[] args) {
+        PginasApi apiInstance = new PginasApi();
+        BigDecimal id = 1.2; // BigDecimal | ID da página que deseja visualizar.
+        try {
+            pagina result = apiInstance.paginasIdIdGet(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PginasApi#paginasIdIdGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Pginas-paginasIdIdGet-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Pginas-paginasIdIdGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">BigDecimal *id = 1.2; // ID da página que deseja visualizar.
+
+PginasApi *apiInstance = [[PginasApi alloc] init];
+
+[apiInstance paginasIdIdGetWith:id
+              completionHandler: ^(pagina output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Pginas-paginasIdIdGet-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var CronopdiaApi = require('cronopdia_api');
+
+var api = new CronopdiaApi.PginasApi()
+var id = 1.2; // {{BigDecimal}} ID da página que deseja visualizar.
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.paginasIdIdGet(id, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Pginas-paginasIdIdGet-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Pginas-paginasIdIdGet-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class paginasIdIdGetExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new PginasApi();
+            var id = 1.2;  // BigDecimal | ID da página que deseja visualizar.
+
+            try
+            {
+                pagina result = apiInstance.paginasIdIdGet(id);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling PginasApi.paginasIdIdGet: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Pginas-paginasIdIdGet-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiPginasApi();
+$id = 1.2; // BigDecimal | ID da página que deseja visualizar.
+
+try {
+    $result = $api_instance->paginasIdIdGet($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PginasApi->paginasIdIdGet: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Pginas-paginasIdIdGet-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::PginasApi;
+
+my $api_instance = WWW::SwaggerClient::PginasApi->new();
+my $id = 1.2; # BigDecimal | ID da página que deseja visualizar.
+
+eval { 
+    my $result = $api_instance->paginasIdIdGet(id => $id);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling PginasApi->paginasIdIdGet: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Pginas-paginasIdIdGet-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.PginasApi()
+id = 1.2 # BigDecimal | ID da página que deseja visualizar.
+
+try: 
+    api_response = api_instance.paginas_id_id_get(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PginasApi->paginasIdIdGet: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_paginasIdIdGet_id">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      BigDecimal
+                                                  </span>
+                                                      <span class="format">
+                                                          (int64)
+                                                      </span>
+                                  
+                                                      <div class="inner description">
+                                                          ID da página que deseja visualizar.
+                                                      </div>
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - A requisição foi aceita e retornou a página encontrada. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-paginasIdIdGet-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-paginasIdIdGet-200-schema">
+                                  <div id='responses-paginasIdIdGet-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = ;
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-paginasIdIdGet-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-paginasIdIdGet-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-paginasIdIdGet-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: 404 - A requisição foi aceita, mas a página não foi encontrada. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                             </ul>
