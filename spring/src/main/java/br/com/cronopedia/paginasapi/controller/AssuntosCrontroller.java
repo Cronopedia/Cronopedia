@@ -1,8 +1,17 @@
-import java.net.http.HttpHeaders;
+package br.com.cronopedia.paginasapi.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import br.com.cronopedia.paginasapi.model.Assuntos;
 import br.com.cronopedia.paginasapi.repository.AssuntosRepository;
-import br.com.cronopedia.paginasapi.repository.PaginaRepository;
 
 @CrossOrigin
 @RestController
@@ -23,6 +32,6 @@ public class AssuntosCrontroller {
         HttpHeaders header = new HttpHeaders();
 
         // Response (200)
-        return new ResponseEntity<>(a, header, HtTpStatus.OK);
+        return new ResponseEntity<>(a, header, HttpStatus.OK);
     }
 }

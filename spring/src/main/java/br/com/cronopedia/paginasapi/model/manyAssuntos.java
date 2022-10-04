@@ -45,7 +45,7 @@ public class manyAssuntos {
         return relevancia;
     }
 
-    public void setRelevancia(String relevancia) {
+    public void setRelevancia(float relevancia) {
         this.relevancia = relevancia;
     }
 
