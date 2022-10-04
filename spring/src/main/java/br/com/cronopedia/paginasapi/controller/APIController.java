@@ -12,7 +12,7 @@ public class APIController {
     @GetMapping("/")
     public ModelAndView index() {
         ModelAndView MV = new ModelAndView();
-        MV.setViewName("index");
+        MV.setViewName("doc/index");
         return MV;
     }
 

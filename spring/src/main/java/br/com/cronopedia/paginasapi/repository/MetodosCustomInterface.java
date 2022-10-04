@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import br.com.cronopedia.paginasapi.model.Assuntos;
 import br.com.cronopedia.paginasapi.model.Historico;
 import br.com.cronopedia.paginasapi.model.Pagina;
 import br.com.cronopedia.paginasapi.model.Usuario;
@@ -21,7 +22,7 @@ public interface MetodosCustomInterface {
     List<Pagina> findPaginasAllOrderByRelevanciaDesc();
 
     // Encontra uma pagina com a maior relevancia
-    @Query(value = "SELECT * FROM pagina WHERE relevancia = ( SELECT MAX(relevancia) FROM pagina ", nativeQuery = true)
+    @Query(value = "SELECT * FROM pagina WHERE relevancia = ( SELECT MAX(relevancia) FROM pagina)", nativeQuery = true)
     Pagina findOnePaginaOrderByRelevancia();
 
     // Query para buscar Usuário no Banco pelo nickname
@@ -35,4 +36,8 @@ public interface MetodosCustomInterface {
     // Query para buscar o histórico de edições de uma Página
     @Query(value = "SELECT * FROM histoico WHERE pagina_id = :paginaID", nativeQuery = true)
     List<Historico> findHistoricoByPaginaID(@Param("paginaID") Long paginaID);
+
+    // Query para encontrar os assuntos mais relevantes (Aooo Top Trends)
+    @Query(value = "SELECT * FROM assuntos ORDER BY relevancia DESC", nativeQuery = true)
+    List<Assuntos> findAssuntosAllOrderByRelevancia();
 }
