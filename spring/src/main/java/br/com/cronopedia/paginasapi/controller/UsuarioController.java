@@ -61,7 +61,7 @@ public class UsuarioController {
                     return new ResponseEntity<>(match, null, HttpStatus.OK);
                 } else {
                     // Response - Credenciais invalidas (207)
-                    return new ResponseEntity<>(match, null, HttpStatus.MULTI_STATUS); // LEMBRAR DE TRATAR NO FRONT-END 
+                    return new ResponseEntity<>(match, null, HttpStatus.MULTI_STATUS); // LEMBRAR DE TRATAR NO FRONT-END
                 }
 
             } catch (NoSuchElementException e) {
@@ -80,7 +80,7 @@ public class UsuarioController {
     public ResponseEntity<?> getDados(@PathVariable("id") Long id) {
         try {
             Usuario u = usuarioRepository.findById(id).get();
-            
+
             // Response - Tudo certo (200)
             return new ResponseEntity<>(u, null, HttpStatus.OK);
         } catch (Exception e) {
@@ -101,10 +101,10 @@ public class UsuarioController {
     // Rota de verificação de disponibilidade do nickname (true: disponível)
     // @GetMapping("/nickname/check/{name}")
     // public boolean checkNick(@PathVariable("name") String name) {
-    //     if (usuarioRepository.existByNickname(name)) {
-    //         return false;
-    //     }
+    // if (usuarioRepository.existByNickname(name)) {
+    // return false;
+    // }
 
-    //     return true;
+    // return true;
     // }
 }

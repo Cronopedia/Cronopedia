@@ -30,8 +30,8 @@ public interface MetodosCustomInterface {
     Usuario findUsuarioByNickname(@Param("nickParametro") String nickname);
 
     // Query para verificar se um nickname está registrado no Banco
-    @Query("SELECT CASE WHEN COUNT(u)> 0 THEN true ELSE false END FROM usuario u WHERE u.nickname LIKE :nickname")
-    Boolean existByNickname(@Param("nickParametro") String nickname);
+    // @Query("SELECT CASE WHEN COUNT(u)> 0 THEN true ELSE false END FROM usuario u WHERE u.nickname LIKE :nickParametro")
+    // Boolean existByNickname(@Param("nickParametro") String nickname);
 
     // Query para buscar o histórico de edições de uma Página
     @Query(value = "SELECT * FROM histoico WHERE pagina_id = :paginaID", nativeQuery = true)

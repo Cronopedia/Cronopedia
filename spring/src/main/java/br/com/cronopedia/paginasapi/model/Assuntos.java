@@ -17,6 +17,7 @@ public class Assuntos {
     private Long ID;
 
     private String tag;
+    private float relevancia = 0; // A cada nova consulta ao assunto ou página associada, se deve calcular uma nova relevancia;
 
     @ManyToOne
     @JsonBackReference
@@ -49,5 +50,4 @@ public class Assuntos {
         this.paginasAssociadas = paginasAssociadas;
     }
 
-    
 }

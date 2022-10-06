@@ -31,7 +31,7 @@ public class Pagina {
     private String resumo;
     private String conteudo;
 
-    private float relevancia = (long) 0;
+    private float relevancia = 0; // A cada nova consulta a página, se deve calcular uma nova relevancia;
 
     // associação das Imagens
     @OneToMany(cascade = CascadeType.ALL)
@@ -45,7 +45,7 @@ public class Pagina {
     @JsonManagedReference
     private List<Assuntos> assuntos;
 
-    @ManyToMany(cascade = CascadeType   .ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "associacao_pagina_assuntos", joinColumns = @JoinColumn(name = "fk_pagina"), inverseJoinColumns = @JoinColumn(name = "fk_assunto"))
     private List<manyAssuntos> assuntosMany;
 
