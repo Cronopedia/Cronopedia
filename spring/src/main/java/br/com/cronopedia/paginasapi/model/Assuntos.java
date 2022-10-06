@@ -17,7 +17,8 @@ public class Assuntos {
     private Long ID;
 
     private String tag;
-    private float relevancia = 0; // A cada nova consulta ao assunto ou página associada, se deve calcular uma nova relevancia;
+    private float relevancia = 0; // A cada nova consulta ao assunto ou página associada, se deve calcular uma
+                                  // nova relevancia;
 
     @ManyToOne
     @JsonBackReference
@@ -48,6 +49,14 @@ public class Assuntos {
 
     public void setPaginasAssociadas(Pagina paginasAssociadas) {
         this.paginasAssociadas = paginasAssociadas;
+    }
+
+    public float getRelevancia() {
+        return relevancia;
+    }
+
+    public void setRelevancia(float relevancia) {
+        this.relevancia = relevancia;
     }
 
 }
