@@ -1,0 +1,39 @@
+{
+  "titulo": "Teste",
+  "resumo": "Frase para conteuxtualizar o artigo",
+  "autor": "Jonas F. S.",
+  "dataPublicacao": "2022-12-31",
+  "conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut scelerisque congue felis sed dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+  "assuntos": [
+    {
+      "tag": "AssuntoTeste"
+    },
+    {
+      "tag": "Snow"
+    }
+  ],
+  "imagensURL": [
+    {
+      "url": "https://..."
+    },
+    {
+      "url": "https://..."
+    }
+  ],
+  "historicos": [
+    {
+      "dataAlteracao": "2022-10-05",
+      "editorNickname": "JonasXJ6",
+      "descricao": "Paragrafo introdutório."
+    }
+  ],
+  "usuarios": [
+    {
+      "nickname": "JonasXJ6",
+      "nome": "Jonas Filipe Silva",
+      "senha": "JF2001",
+      "dataNascimento": "2001-10-01",
+      "email": "filipe_JS@gamil.com"
+    }
+  ]
+}
