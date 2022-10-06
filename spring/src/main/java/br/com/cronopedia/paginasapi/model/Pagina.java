@@ -1,50 +1,80 @@
 package br.com.cronopedia.paginasapi.model;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+@Entity
 public class Pagina {
-    private static int idCounter = 0;
-    protected SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+    public static Pagina voidPage() {
+        return null;
+    }
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String titulo;
+
     private String autor;
-    private Date date = new Date();
-    private String data;
+    private Date dataPublicacao;
     private String resumo;
     private String conteudo;
-    private ArrayList<String> assuntos;
-    private ArrayList<String> imagensURL;
+
+    private float relevancia = 0; // A cada nova consulta a página, se deve calcular uma nova relevancia;
+
+    // associação das Imagens
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_url")
+    @JsonManagedReference
+    private List<Imagens> imagensURL;
+
+    // Associação dos Assuntos
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_pagina")
+    @JsonManagedReference
+    private List<Assuntos> assuntos;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "associacao_pagina_assuntos", joinColumns = @JoinColumn(name = "fk_pagina"), inverseJoinColumns = @JoinColumn(name = "fk_assunto"))
+    private List<manyAssuntos> assuntosMany;
+
+    // Associação dos Históricos
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_edicao")
+    @JsonManagedReference
+    private List<Historico> historicos;
+
+    // ManyToMany com usuário (varias paginas poderão ser propriedade de varios
+    // usuários) -> princípio da colaboração
+    // Associação dos Assuntos
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_pagina")
+    @JsonManagedReference
+    private List<Usuario> usuarios;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "associacao_pagina_usuario", joinColumns = @JoinColumn(name = "fk_pagina"), inverseJoinColumns = @JoinColumn(name = "fk_usuario"))
+    private List<manyUsuarios> usuariosMany;
 
     public Pagina() {
-        this.id = ++Pagina.idCounter;
-        this.data = formatter.format(date);
     }
 
-    public Pagina(String titulo, String autor, String resumo, String conteudo, String assuntos, String url) {
-
-        this.id = ++Pagina.idCounter;
-        this.data = formatter.format(date);
-        this.titulo = titulo;
-        this.autor = autor;
-        this.resumo = resumo;
-        this.conteudo = conteudo;
-        this.assuntos = new ArrayList<>();
-        this.assuntos.add(titulo);
-        this.assuntos.add(assuntos);
-        this.imagensURL = new ArrayList<>();
-        this.imagensURL.add(url);
-    }
-
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -64,6 +94,14 @@ public class Pagina {
         this.autor = autor;
     }
 
+    public Date getDataPublicacao() {
+        return dataPublicacao;
+    }
+
+    public void setDataPublicacao(Date dataPublicacao) {
+        this.dataPublicacao = dataPublicacao;
+    }
+
     public String getResumo() {
         return resumo;
     }
@@ -80,62 +118,60 @@ public class Pagina {
         this.conteudo = conteudo;
     }
 
-    public String getData() {
-        return data;
+    public float getRelevancia() {
+        return relevancia;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setRelevancia(float relevancia) {
+        this.relevancia = relevancia;
     }
 
-    public void addAssunto(String termo) {
-        this.assuntos.add(termo);
-    }
-
-    public void removeAssunto(String termoToRemove) {
-        this.assuntos.remove(termoToRemove);
-    }
-
-    public ArrayList<String> getAssuntos() {
-        return assuntos;
-    }
-
-    public void addImagem(String url) {
-        this.imagensURL.add(url);
-    }
-
-    public void removeImagem(String urlToRemove) {
-        this.imagensURL.remove(urlToRemove);
-    }
-
-    public ArrayList<String> getImagens() {
+    public List<Imagens> getImagensURL() {
         return imagensURL;
     }
 
-    // Termos identicos
-    public Boolean relecionada(String assunto) {
-        if (this.getAssuntos().contains(assunto)) {
-            return true;
-        }
-
-        return false;
+    public void setImagensURL(List<Imagens> imagensURL) {
+        this.imagensURL = imagensURL;
     }
 
-    // Regex
-    public Boolean relacionadaRX(String assunto) {
-        // Criando um regex de busca
-        Pattern pattern = Pattern.compile(assunto, Pattern.CASE_INSENSITIVE);
-
-        for (int i = 0; i < this.assuntos.size(); i++) {
-            Matcher matcher = pattern.matcher(this.assuntos.get(i));
-
-            // percorrendo os matches
-            while (matcher.find()) {
-                // return
-                return true;
-            }
-        }
-
-        return false;
+    public List<Assuntos> getAssuntos() {
+        return assuntos;
     }
+
+    public void setAssuntos(List<Assuntos> assuntos) {
+        this.assuntos = assuntos;
+    }
+
+    public List<manyAssuntos> getAssuntosMany() {
+        return assuntosMany;
+    }
+
+    public void setAssuntosMany(List<manyAssuntos> assuntosMany) {
+        this.assuntosMany = assuntosMany;
+    }
+
+    public List<Historico> getHistoricos() {
+        return historicos;
+    }
+
+    public void setHistoricos(List<Historico> historicos) {
+        this.historicos = historicos;
+    }
+
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public List<manyUsuarios> getUsuariosMany() {
+        return usuariosMany;
+    }
+
+    public void setUsuariosMany(List<manyUsuarios> usuariosMany) {
+        this.usuariosMany = usuariosMany;
+    }
+
 }
