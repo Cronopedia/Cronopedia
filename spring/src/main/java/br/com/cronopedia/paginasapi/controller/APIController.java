@@ -9,11 +9,12 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class APIController {
 
-    @GetMapping("/")
-    public ModelAndView index() {
-        ModelAndView MV = new ModelAndView();
-        MV.setViewName("doc/index");
-        return MV;
-    }
+    // @GetMapping("/")
+    // public ModelAndView index() {
+    // ModelAndView MV = new ModelAndView();
+    // MV.setViewName("doc/index");
+    // MV.setStatus(null);
+    // return MV;
+    // }
 
 }
