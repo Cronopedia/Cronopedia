@@ -22,8 +22,9 @@
               name="search"
               id="search"
               placeholder="Descubra algo novo..."
+              autocomplete="off"
             />
-            <button type="submit" id="search-submit"></button>
+            <button type="submit" id="search-submit"> Pesquisar </button>
           </form>
         </section>
 
@@ -33,12 +34,12 @@
       <section class="articles">
         <section class="article day">
           <h2>Artigo do Dia</h2>
-          <CardJava
+          <!-- <CardJava
             v-bind:title="`${response[random].titulo}`"
             v-bind:resumo="`${response[random].resumo}`"
             v-bind:img="`${response[random].imagens}`"
             :id="response[random].id"
-          ></CardJava>
+          ></CardJava> -->
         </section>
 
         <section class="article day">
@@ -59,6 +60,11 @@
 
 
 <style>
+@import "~/static/css/geral.css";
+@import "~/static/css/layout.css";
+@import "~/static/css/menu.css";
+@import "~/static/css/elements.css";
+@import '~/static/css/input.css'
 </style>
 
 <script>

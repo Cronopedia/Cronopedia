@@ -17,7 +17,7 @@ section.article-image {
   align-items: center;
 }
 div.article-image-container {
-  background-color: #000;
+  background-color: #fff;
   width: calc(450px * 0.8);
   height: calc(450px * 0.8);
 }

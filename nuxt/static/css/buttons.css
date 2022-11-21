@@ -1,4 +1,4 @@
-button.edit{
+button.edit {
     position: fixed;
     background-color: white;
     width: 3.5em;
@@ -13,11 +13,13 @@ button.edit{
     color: black;
 }
 
-.edit *{
+
+
+.edit * {
     color: currentColor;
 }
 
-.edit-mobile{
+.edit-mobile {
     width: 8em;
     height: 3.5em;
     background-color: aqua;
@@ -28,7 +30,7 @@ button.edit{
     justify-content: center;
 }
 
-.edit-mobile::after{
+.edit-mobile::after {
     content: "";
     position: relative;
     display: block;
@@ -37,25 +39,79 @@ button.edit{
     font-weight: bold;
 }
 
-.salvar{
+.salvar {
     background-color: #e0e0e0;
     color: black;
 }
-.salvar::after{
+
+.salvar::after {
     content: "Salvar";
 }
 
-.cancelar{
+.cancelar {
     background-color: black;
     color: white;
 }
 
-.cancelar::after{
+.cancelar::after {
     content: "Cancelar";
 }
 
-@media (max-width: 700px){
-    button.edit{
+@media (max-width: 700px) {
+    button.edit {
         display: none;
+    }
+}
+
+.primary {
+    border-radius: 6px;
+    background-color: white;
+    border: 3px solid black;
+    box-sizing: border-box;
+    font-weight: bold;
+    color: black;
+    width: 6em;
+    padding: 0.5em 0.25em;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s cubic-bezier(0.83, 0, 0.17, 1);
+}
+
+/* .primary::after {
+    content: "Acessar.";
+    position: relative;
+    display: block;
+    color: rgb(255, 255, 255);
+    mix-blend-mode: difference;
+}
+
+.primary::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 102%;
+    height: 106%;
+    padding: 0.5em 0.25em;
+    background-color: black;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+
+.primary:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.83, 0, 0.17, 1);
+} */
+
+@media (max-width: 700px) {
+    .primary::before {
+        display: none;
+    }
+
+    .primary:hover {
+        background-color: black;
     }
 }

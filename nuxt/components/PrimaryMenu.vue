@@ -26,5 +26,6 @@ export default {
 @import "~/static/css/layout.css";
 @import "~/static/css/menu.css";
 @import "~/static/css/elements.css";
+@import "~/static/css/top.css";
 @import "~/static/css/style.css";
 </style>
