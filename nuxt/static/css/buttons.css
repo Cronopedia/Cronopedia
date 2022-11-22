@@ -79,6 +79,10 @@ button.edit {
     transition: 0.5s cubic-bezier(0.83, 0, 0.17, 1);
 }
 
+.primary:hover{
+    background-color: var(--main-color);
+}
+
 /* .primary::after {
     content: "Acessar.";
     position: relative;
