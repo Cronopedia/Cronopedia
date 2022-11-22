@@ -12,16 +12,16 @@
 .buttons {
     width: 3em;
     aspect-ratio: 1;
-    background-color: white;
     border-radius: 6px;
     padding: 0.5em;
     position: relative;
     transition: 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+    background-color: transparent;
 }
 
 .menu-button:hover,
 .buttons:hover {
-    background-color: #e0e0e0;
+    background-color: hsla(0, 0%, 88%, 0.066);
 }
 
 .buttons {
@@ -33,7 +33,7 @@
 .btn-perfil {
     border: none;
     box-sizing: border-box;
-    color: black;
+    color: white;
 }
 
 .btn-perfil * {
@@ -48,7 +48,7 @@
     display: block;
     width: 100%;
     height: 5px;
-    background-color: black;
+    background-color: currentColor;
     border-radius: 100vw;
     transform: rotate(0deg);
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -75,15 +75,16 @@
 section.search {
     width: 60%;
     height: 100%;
+
 }
 
 #search-bar-top {
-    -webkit-appearance: none;
+    background-color: transparent;
     border: none;
     outline: none;
     width: 100%;
     padding: 0.25em 0.8em;
-    color: black;
+    color: white;
     position: relative;
     margin-top: 10px;
     border-bottom: 2px solid #F3F3F3;
@@ -173,18 +174,6 @@ div.article-link p.link-topic {
     }
 }
 
-#search-bar-top {
-    -webkit-appearance: none;
-    border: none;
-    outline: none;
-    width: 100%;
-    padding: 0.25em 0.8em;
-    color: black;
-    position: relative;
-    margin-top: 10px;
-    border-bottom: 2px solid #F3F3F3;
-    box-sizing: border-box;
-}
 
 section.search-results-dropdown ::-webkit-scrollbar-thumb {
     border-radius: 10px !important;
@@ -201,83 +190,34 @@ section.search-results-dropdown ::-webkit-scrollbar-thumb {
     border: 3px solid rgba(0, 0, 0, 0.17);
 }
 
-
-/* Menu */
-.primary-menu {
-    --padding: 0.7em;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0 var(--padding) 0 var(--padding);
-    gap: 1.5em;
+/* Outra pesquisa */
+#search {
+    width: 90%;
+    height: 100%;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    
 }
 
-.primary-menu li {
-    display: inline;
+#search::placeholder {
+    font-style: italic;
+    color: #E7E7E7;
 }
 
-
-.primary-menu a {
-    text-decoration: none;
-
-    position: relative;
-    color: black;
-}
-
-.primary-menu a::after {
-    content: '';
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 2px;
+#search-submit {
+    padding: 0.25em;
     border-radius: 100vw;
-    background-color: black;
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.45s cubic-bezier(0.19, 1, 0.22, 1);
-    transition-delay: 0.15s;
-
-}
-
-.primary-menu a:hover::after {
-    transform: scaleX(1);
-    transition: transform 0.45s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.primary-menu {
-
-    position: fixed;
+    background: var(--gradient-btn);
+    display: flex;
+    align-items: center;
     justify-content: center;
-    flex-direction: column;
-    inset: 0 50% 0 0;
-    background-color: white;
-
-    border-radius: 10px;
-    box-shadow: -5px 0 15px 0px rgba(0, 0, 0, 0.178);
-    transform: translateY(-100%) translateX(5%);
-    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transition: transform 0.7s cubic-bezier(0.87, 0, 0.13, 1);
-    z-index: 95;
-    height: 17em;
-    width: 10em;
+    background-color: var(--main-color);
 }
 
-.primary-menu[data-visible="true"] {
-    transform: translateY(25%) translateX(5%);
-    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
 
-@media (max-width: 920px) {
-    .primary-menu[data-visible="true"] {
-        transform: translateY(30%) translateX(5%);
-    }
-}
 
-@media (max-width: 300px) {
-    .primary-menu[data-visible="true"] {
-        transform: translateY(35%) translateX(5%);
-    }
-}
 
 /* dropdown end */
 
@@ -299,9 +239,9 @@ label.label-search::after {
     transform: scaleX(0);
     width: 100%;
     height: 4px;
-    margin-top: -13px;
+    margin-top: -15px;
     border-radius: 100vw;
-    background-color: black;
+    background-color: var(--main-color);
 }
 
 #search-bar-top:focus+label.label-search::after {

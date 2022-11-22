@@ -4,6 +4,9 @@
     <PrimaryMenu></PrimaryMenu>
 
     <section class="geral">
+      <section class="img-form">
+        <img src="" alt="" srcset="">
+      </section>
       <LoginForm></LoginForm>
     </section>
   </section>
@@ -28,11 +31,14 @@ import PrimaryMenu from "~/components/PrimaryMenu.vue";
 import LoginForm from "~/components/LoginForm.vue";
 </script>
 
-<style scoped>
+<style>
 @import "~/static/css/input.css";
-@import "~/static/css/form.css";
+
 @import "~/static/css/geral.css";
 @import "~/static/css/layout.css";
 @import "~/static/css/menu.css";
 @import "~/static/css/elements.css";
+@import "~/static/css/top.css";
+@import "~/static/css/buttons.css";
+@import "~/static/css/form.css";
 </style>

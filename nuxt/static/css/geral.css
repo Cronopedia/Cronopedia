@@ -11,7 +11,11 @@
     --step-4: clamp(2.07rem, calc(1.81rem + 1.31vw), 2.75rem);
     --step-5: clamp(2.49rem, calc(2.12rem + 1.84vw), 3.43rem);
     --grey: #F3F3F3;
-    --text-color: #737373;
+    --background: black;
+    --input-1: hsla(245, 7%, 30%, 0.71);
+    --gradient-btn: linear-gradient(90deg, #F76AA5 -55.7%, #6704E6 113.76%);
+    --main-color: #6704E6;
+    --text-color: white;
 }
 
 *{
@@ -20,8 +24,12 @@
     color: var(--text-color);
 }
 
+body{
+    background-color: var(--background);
+}
+
 h1,h2, h3{
-    color: black;
+    color: var(--text-color);
 }
 
 h1{
@@ -49,3 +57,9 @@ button{
     border: none;
     outline: none;
 }
+
+/* Seleção */
+::selection {
+    background: red;
+    color: #fff;
+  }

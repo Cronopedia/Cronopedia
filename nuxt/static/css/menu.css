@@ -2,14 +2,25 @@
 .primary-menu {
     --padding: 0.7em;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    padding: 0 var(--padding) 0 var(--padding);
-    gap: 1.5em;
+    padding:  var(--padding);
+    z-index: 1000;
 }
 
 .primary-menu li{
-    display: inline;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    
+    height: 100%;
+    padding: 0.2em 0.7em;
+    border-radius: 10px;
+    transition: 0.2s cubic-bezier(0.5, 0, 0.75, 0);
+}
+
+.primary-menu li:hover{
+    background-color: var(--main-color);
 }
 
 
@@ -17,17 +28,17 @@
     text-decoration: none;
 
     position: relative;
-    color: black;
+    color: var(--text-color);;
 }
 
-.primary-menu a::after{
+/* .primary-menu a::after{
     content: '';
     position: relative;
     display: block;
     width: 100%;
     height: 2px;
     border-radius: 100vw;
-    background-color: black;
+    background-color: currentColor;
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.45s cubic-bezier(0.19, 1, 0.22, 1);
@@ -38,39 +49,43 @@
 .primary-menu a:hover::after{
     transform: scaleX(1);
     transition: transform 0.45s cubic-bezier(0.19, 1, 0.22, 1);
-}
+} */
 
 .primary-menu {
 
     position: fixed;
     justify-content: center;
     flex-direction: column;
-    inset: 0 50% 0 0;
-    background-color: white;
 
+    inset: 0 50% 0 0;
+    background-color: #151519;
+    top: 10.75%;
+    left: 2%;
     border-radius: 10px;
     box-shadow: -5px 0 15px 0px rgba(0, 0, 0, 0.178);
-    transform: translateY(-100%) translateX(5%);
+    transform: scale(0);
     transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transition: transform 0.7s cubic-bezier(0.87, 0, 0.13, 1);
     z-index: 95;
-    height: 17em;
+    height: 14em;
     width: 10em;
+    gap: 0em;
 }
 
 .primary-menu[data-visible="true"]{
-    transform: translateY(25%) translateX(5%);
+    transform:scale(1);
     transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    
 }
 
 @media (max-width: 920px){
     .primary-menu[data-visible="true"]{
-        transform: translateY(30%) translateX(5%);
+        top: 10.75%;
     }
 }
 
 @media (max-width: 300px){
     .primary-menu[data-visible="true"]{
-        transform: translateY(35%) translateX(5%);
+        top: 10.75%;
     }
 }

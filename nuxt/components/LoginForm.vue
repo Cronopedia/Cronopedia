@@ -98,5 +98,7 @@ export default {
 @import "~/static/css/menu.css";
 @import "~/static/css/elements.css";
 @import "~/static/css/style.css";
+@import "~/static/css/buttons.css";
+@import "~/static/css/top.css";
 @import "~/static/css/form.css";
 </style>

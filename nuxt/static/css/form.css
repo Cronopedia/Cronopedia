@@ -2,23 +2,33 @@
     height: 100vh;
     width: 100vw;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    
+    gap: 2em;
+    box-sizing: border-box;
+    
 }
 
 .geral {
+    background-color: var(--background);
     background-repeat: no-repeat;
-    background-image: url("https://cdnb.artstation.com/p/assets/images/images/012/781/667/4k/timothy-rodriguez-egypt-temple-002-005-tr.jpg?1536505168");
     background-size: cover;
     height: 100vh;
 }
 
+.img-form{
+    height: 100%;
+    background-color: rgb(71, 68, 68);
+    width: 50%;
+}
 
 .login-form {
-    background-color: white;
+    background-color: red;
     box-sizing: border-box;
-    height: 25em;
-    width: 22em;
+    height: 30em;
+    width: 35%;
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -26,10 +36,9 @@
     flex-direction: column;
     gap: 1.5em;
     padding: 0.8em 1.25em;
-    z-index: 90;
 }
 
-.geral::after {
+/* .geral::after {
     content: "";
     display: block;
     position: absolute;
@@ -38,10 +47,10 @@
     background-color: hsla(0, 0%, 9%, 0.21);
     backdrop-filter: blur(2px);
     z-index: 10;
-}
+} */
 
 .login-form input {
-    width: 90%;
+    width: 60%;
 }
 
 .input-style-1 {
@@ -74,7 +83,7 @@
 }
 
 .label-login {
-    width: 90%;
+    width: 60%;
     color: black;
     margin-bottom: -1.5em;
     display: flex;
@@ -87,6 +96,9 @@
     color: currentColor;
 }
 
+.primary{
+    border-radius: 100vw;
+}
 .primary::after {
     content: "Log In";
 }

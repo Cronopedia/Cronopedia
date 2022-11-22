@@ -56,98 +56,16 @@ button {
   outline: none;
 }
 
-.primary {
-  border-radius: 6px;
-  background-color: white;
-  border: 3px solid black;
-  box-sizing: border-box;
-  font-weight: bold;
-  color: black;
-  width: 6em;
-  padding: 0.5em 0.25em;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.5s cubic-bezier(0.83, 0, 0.17, 1);
-}
 
-.primary::after {
-  content: "Acessar.";
-  position: relative;
-  display: block;
-  color: rgb(255, 255, 255);
-  mix-blend-mode: difference;
-}
-
-.primary::before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 102%;
-  height: 106%;
-  padding: 0.5em 0.25em;
-  background-color: black;
-  transform-origin: right;
-  transform: scaleX(0);
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
-}
-
-.primary:hover::before {
-  transform: scaleX(1);
-  transform-origin: left;
-  transition: transform 0.5s cubic-bezier(0.83, 0, 0.17, 1);
-}
-
-@media (max-width: 700px) {
-  .primary::before {
-    display: none;
-  }
-
-  .primary:hover {
-    background-color: black;
-  }
-}
 
 
 
 
 
 /* Inicio da página*/
-.home {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 4em 1.5em;
-  padding-top: 7em;
-}
-
-.home * {
-  width: 50%;
-}
 
 
-.init h1 {
-  text-transform: capitalize;
-}
 
-.init h1,
-.init p {
-  width: 75%;
-}
-
-.init p {
-  color: black;
-}
-
-.init form {
-  width: 55%;
-  height: 2em;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-}
 
 .img {
   width: 20em;
@@ -158,118 +76,13 @@ button {
 
 
 /* Card de artigos*/
-.articles {
-  padding: 1.5em;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-  gap: 2.5em;
-  background-color: var(--grey);
-}
 
-.article {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-  gap: 1em;
-}
-
-.card-article {
-  width: 39em;
-  height: 17em;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-}
-
-.img-article {
-  width: 40%;
-  height: 100%;
-  background-image: url('https://i0.wp.com/www.historiadasartes.com/wp-content/uploads/2021/06/m_SargentAutorretrato.jpg?resize=473%2C450&ssl=1');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-text {
-  padding: 0.5em 2.25em;
-  width: 60%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.5em;
-  text-align: justify;
-  flex-wrap: wrap;
-}
-
-.card-text p {
-  --max-lines: 3;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 100%;
-  -webkit-box-orient: vertical;
-  max-height: calc(var(--lh) * var(--max-lines));
-  text-overflow: -o-ellipsis-lastline
-}
 
 /* Inputs */
 
 /*Search Bar*/
 
-section.search {
-  width: 60%;
-  height: 100%;
-}
 
-#search-bar-top {
-  -webkit-appearance: none;
-  border: none;
-  outline: none;
-  width: 100%;
-  padding: 0.25em 0.8em;
-  color: black;
-  position: relative;
-  margin-top: 10px;
-  border-bottom: 2px solid #F3F3F3;
-  box-sizing: border-box;
-}
-
-
-
-label.label-search {
-  position: relative;
-  width: 100%;
-
-}
-
-label.label-search::after {
-  content: "";
-  display: block;
-  position: relative;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  transform-origin: left;
-  transform: scaleX(0);
-  width: 100%;
-  height: 4px;
-  margin-top: -13px;
-  border-radius: 100vw;
-  background-color: black;
-
-
-}
-
-#search-bar-top:focus+label.label-search::after {
-  transform: scaleX(1);
-  transition: transform 0.5s cubic-bezier(0.83, 0, 0.17, 1);
-
-
-}
 
 /* Limpa o botãozinho de cancelar do Explorer*/
 input[type=search]::-ms-clear {
@@ -295,29 +108,7 @@ input[type="search"]::-webkit-search-results-decoration {
 /*Créditos - https://medium.com/@rion.mrk/how-to-remove-x-icon-from-search-input-field-or-input-type-search-db3c808405fb*/
 
 
-#search {
-  width: 90%;
-  height: 100%;
-  outline: none;
-  border: 2px solid #737373;
-}
 
-#search::placeholder {
-  font-style: italic;
-  color: #737373;
-}
-
-#search-submit {
-  height: 100%;
-  background-color: black;
-}
-
-#search-submit::before {
-  content: "Pesquisar";
-  display: block;
-  position: relative;
-  color: white;
-}
 
 
 .mobile-nav {
@@ -467,8 +258,3 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 }
 
-/* Seleção */
-::selection {
-  background: #000000ee;
-  color: #fff;
-}
