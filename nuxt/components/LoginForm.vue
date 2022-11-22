@@ -36,13 +36,13 @@
 export default {
   name: "LoginForm",
 
-  data(){
-    return{
-      login:{
+  data() {
+    return {
+      login: {
         username: "",
-        password:"",
-      }
-    }
+        password: "",
+      },
+    };
   },
 
   methods: {
@@ -57,40 +57,41 @@ export default {
       return parseInt(Math.random() * 100000000);
     },
 
-    async setAuthToken(data){
-      const authHeader = 'Bearer ' + data.token;
+    async setAuthToken(data) {
+      const authHeader = "Bearer " + data.token;
 
       this.$auth.setUserToken(authHeader, null);
-      this.$axios.setHeader('Authorization', authHeader);
+      this.$axios.setHeader("Authorization", authHeader);
 
-      const response = await this.$auth.get('/user/me');
-      this.$auth.setUser(response.data); 
-
+      const response = await this.$auth.get("/user/me");
+      this.$auth.setUser(response.data);
     },
 
-    async efetuarLogin(){
+    async efetuarLogin() {
       event.preventDefault();
-      try{
-        let response = this.$axios.post("/login", this.login);
+      try {
+        let response = await this.$auth.loginWith("local", {
+          data: {
+            username: this.login.username,
+            password: this.login.password,
+          },
+        });
 
-        if(response.data.data.token){
-           await this.setAuthToken(response.data.data);
+        console.log(response);
+
+        if (this.$auth.loggedIn) {
+          console.log("Sucesso");
+          console.log(this.$auth.strategy.token);
+          console.log(this.$auth.strategy);
+          this.$router.push("/");
         }
-
-        if(this.$auth.loggedIn){
-          console.log("Sucesso")
-          console.log(this.$auth.strategy.token)
-          console.log(this.$auth.strategy)
-          this.$router.push("/")
-        }
-
-      } catch(error){
+      } catch (error) {
         console.log(error);
 
         alert("deu algo errado aí");
       }
-    }
-    
+    },
+
     // validar() {
     //   event.preventDefault();
     //   this.validarEmail();

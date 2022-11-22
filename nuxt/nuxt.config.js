@@ -63,14 +63,14 @@ export default {
 
   auth: {
     strategies: {
-      local:{
-        user:{
+      local: {
+        user: {
           autoFetch: false,
         },
 
-        endpoints:{
-          login:{url: '/login', method: 'post', propertyName: "data.token"},
-          user: { url: '/user/me', method: 'get'},
+        endpoints: {
+          login: { url: '/login', method: 'post', propertyName: "data.token" },
+          user: { url: '/user/me', method: 'get' },
         }
       }
     },
