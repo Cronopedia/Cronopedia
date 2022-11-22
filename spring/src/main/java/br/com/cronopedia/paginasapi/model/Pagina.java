@@ -11,8 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -57,11 +59,9 @@ public class Pagina {
 
     // ManyToMany com usuário (varias paginas poderão ser propriedade de varios
     // usuários) -> princípio da colaboração
-    // Associação dos Assuntos
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_pagina")
-    @JsonManagedReference
-    private List<Usuario> usuarios;
+    @ManyToOne
+    @JsonBackReference
+    private Pagina usuarioAssociado;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "associacao_pagina_usuario", joinColumns = @JoinColumn(name = "fk_pagina"), inverseJoinColumns = @JoinColumn(name = "fk_usuario"))
@@ -158,20 +158,20 @@ public class Pagina {
         this.historicos = historicos;
     }
 
-    public List<Usuario> getUsuarios() {
-        return usuarios;
-    }
-
-    public void setUsuarios(List<Usuario> usuarios) {
-        this.usuarios = usuarios;
-    }
-
     public List<manyUsuarios> getUsuariosMany() {
         return usuariosMany;
     }
 
     public void setUsuariosMany(List<manyUsuarios> usuariosMany) {
         this.usuariosMany = usuariosMany;
+    }
+
+    public Pagina getUsuarioAssociado() {
+        return usuarioAssociado;
+    }
+
+    public void setUsuarioAssociado(Pagina usuarioAssociado) {
+        this.usuarioAssociado = usuarioAssociado;
     }
 
 }

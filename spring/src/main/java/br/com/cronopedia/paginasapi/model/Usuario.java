@@ -1,14 +1,18 @@
 package br.com.cronopedia.paginasapi.model;
 
 import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Usuario {
@@ -25,9 +29,10 @@ public class Usuario {
 
     // ManyToMany com paginas (varios usuários poderão ser donos de varias paginas)
     // -> princípio da colaboração
-    @ManyToOne
-    @JsonBackReference
-    private Pagina paginasAssociadas;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_user")
+    @JsonManagedReference
+    private List<Pagina> paginasAssociadas;
 
     public Usuario() {
     }
@@ -38,14 +43,6 @@ public class Usuario {
 
     public void setID(Long iD) {
         ID = iD;
-    }
-
-    public Pagina getPaginasAssociadas() {
-        return paginasAssociadas;
-    }
-
-    public void setPaginasAssociadas(Pagina paginasAssociadas) {
-        this.paginasAssociadas = paginasAssociadas;
     }
 
     public String getNickname() {
@@ -86,6 +83,14 @@ public class Usuario {
 
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    public List<Pagina> getPaginasAssociadas() {
+        return paginasAssociadas;
+    }
+
+    public void setPaginasAssociadas(List<Pagina> paginasAssociadas) {
+        this.paginasAssociadas = paginasAssociadas;
     }
 
 }
