@@ -34,6 +34,8 @@
 
 <script>
 export default {
+  auth: false,
+
   name: "LoginForm",
 
   data() {
@@ -63,32 +65,31 @@ export default {
       this.$auth.setUserToken(authHeader, null);
       this.$axios.setHeader("Authorization", authHeader);
 
-      const response = await this.$auth.get("/user/me");
+      const response = await this.$axios.get("/user/me");
       this.$auth.setUser(response.data);
     },
 
     async efetuarLogin() {
       event.preventDefault();
       try {
-        let response = await this.$auth.loginWith("local", {
-          data: {
-            username: this.login.username,
-            password: this.login.password,
-          },
-        });
+        let response = await this.$axios.post("/login", this.login);
 
-        console.log(response);
+        if(response.data.data.token){
+          await this.setAuthToken(response.data.data);
+        }
 
-        if (this.$auth.loggedIn) {
-          console.log("Sucesso");
-          console.log(this.$auth.strategy.token);
-          console.log(this.$auth.strategy);
+        if(this.$auth.loggedIn){
+          console.log("Sucesso")
           this.$router.push("/");
         }
+
+
+
+
       } catch (error) {
         console.log(error);
 
-        alert("deu algo errado aí");
+        alert("Nome de usuário ou senha estão incorretos");
       }
     },
 

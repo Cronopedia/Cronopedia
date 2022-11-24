@@ -24,10 +24,12 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    background: var(--form);
+    background: var(--form-img);
     width: 50%;
     
 }
+
+
 
 .img-form img{
     box-shadow: inset 0px 1px 4px rgba(239, 233, 233, 0.46);
@@ -39,12 +41,11 @@
 }
 
 .login-form {
-    /* box-shadow: inset 0px 1px 4px rgba(239, 233, 233, 0.46);
-    backdrop-filter: blur(3px); */
-    /* background: var(--form); */
+
     box-sizing: border-box;
     height: 100%;
     width: 35%;
+    min-width: 20em;
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -70,6 +71,7 @@ h2{
 
 .login-form input {
     width: 60%;
+    min-width: 10em;
 }
 
 .input-style-1 {
@@ -148,4 +150,30 @@ h2{
 
 .vis {
     opacity: 100%;
+}
+
+/* Responsividade */
+@media screen and (max-width: 980px){
+    .geral{
+        justify-content: center;
+    }
+    .login-form{
+        
+        background: var(--form);
+        box-shadow: inset 0px 1px 4px rgba(239, 233, 233, 0.46);
+        backdrop-filter: blur(10px);
+        position: absolute;
+        width: 50%;
+        height: 25em;
+
+    }
+
+    .img-form{
+        padding: 0;
+        width: 100%;
+    }
+
+    .img-form img{
+        width: 100%;
+    }
 }

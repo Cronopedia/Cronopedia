@@ -46,7 +46,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
 
-    '@nuxtjs/auth',
+    '@nuxtjs/auth-next',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -65,7 +65,7 @@ export default {
     strategies: {
       local: {
         user: {
-          autoFetch: false,
+          property:''
         },
 
         endpoints: {
@@ -74,6 +74,10 @@ export default {
         }
       }
     },
+
+    router:{
+      middleware:["auth"]
+    }
 
   },
 
