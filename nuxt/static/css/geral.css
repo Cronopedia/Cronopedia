@@ -19,7 +19,8 @@
     --gradient-btn: linear-gradient(90deg, #F76AA5 -55.7%, #6704E6 113.76%);
     --main-color: #6704E6;
     --text-color: white;
-    --error: hsl(349, 100%, 61%);
+    --error: #ff385d;
+    --primary-pink: #F76AA5;
 }
 
 *{

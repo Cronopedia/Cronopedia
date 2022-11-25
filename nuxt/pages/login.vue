@@ -15,6 +15,8 @@
 
 <script>
 export default {
+  auth: false,
+  
   name: "LoginPage",
 
   components: { TopBar, MobileNav, PrimaryMenu, LoginForm },

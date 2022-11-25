@@ -1,6 +1,6 @@
 button.edit {
     position: fixed;
-    background-color: white;
+    background-color: var(--main-color);
     width: 3.5em;
     aspect-ratio: 1;
     border-radius: 50%;
@@ -10,7 +10,7 @@ button.edit {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: black;
+    color: white;
 }
 
 
@@ -58,57 +58,46 @@ button.edit {
 }
 
 @media (max-width: 700px) {
-    button.edit {
-        display: none;
-    }
 }
 
-.primary {
-    border-radius: 6px;
-    background-color: white;
-    border: 3px solid black;
-    box-sizing: border-box;
-    font-weight: bold;
-    color: black;
-    width: 6em;
-    padding: 0.5em 0.25em;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s cubic-bezier(0.83, 0, 0.17, 1);
+.primary{
+    background: var(--gradient-btn) ;
+    border-radius: 100vw;
+    border: none;
 }
 
-.primary:hover{
+.primary::after{
+    content: "Acessar";
+}
+
+
+
+#save, #delete{
+    background: transparent;
+    border: 2px solid ;
+    width: 10em;
+    padding: 0.5em 1.5em;
+    border-radius: 100vw;
+    transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#save{
+    border-color: var(--main-color);
+}
+#save:hover{
     background-color: var(--main-color);
 }
 
-/* .primary::after {
-    content: "Acessar.";
-    position: relative;
-    display: block;
-    color: rgb(255, 255, 255);
-    mix-blend-mode: difference;
+#delete{
+    border-color: var(--primary-pink);
+    background: transparent;
+    
 }
 
-.primary::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 102%;
-    height: 106%;
-    padding: 0.5em 0.25em;
-    background-color: black;
-    transform-origin: right;
-    transform: scaleX(0);
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+#delete:hover{
+    background-color: var(--primary-pink);
 }
 
-.primary:hover::before {
-    transform: scaleX(1);
-    transform-origin: left;
-    transition: transform 0.5s cubic-bezier(0.83, 0, 0.17, 1);
-} */
 
 @media (max-width: 700px) {
     .primary::before {

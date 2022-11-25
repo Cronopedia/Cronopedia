@@ -44,15 +44,18 @@
 
         <section class="article day">
           <h2>Explorar Artigos</h2>
+
+          <section :key="card" v-for="card in response">  
+            <CardJava
+              v-bind:title="`${card.titulo}`"
+              v-bind:resumo="`${card.resumo}`"
+              v-bind:img="`${card.imagens}`"
+              :id="card.id"
+            ></CardJava>
+          </section>
+
         </section>
-        <section :key="card" v-for="card in response">  
-          <CardJava
-            v-bind:title="`${card.titulo}`"
-            v-bind:resumo="`${card.resumo}`"
-            v-bind:img="`${card.imagens}`"
-            :id="card.id"
-          ></CardJava>
-        </section>
+
       </section>
     </section>
   </section>
@@ -60,15 +63,17 @@
 
 
 <style>
+@import "~/static/css/style.css";
 @import "~/static/css/geral.css";
 @import "~/static/css/layout.css";
 @import "~/static/css/menu.css";
 @import "~/static/css/elements.css";
-@import '~/static/css/input.css'
+@import '~/static/css/input.css';
 </style>
 
 <script>
 export default {
+  auth: false,
   name: "IndexPage",
   data(){
     return{

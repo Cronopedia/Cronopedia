@@ -1,12 +1,11 @@
 <template>
   <section class="body">
     <TopBar></TopBar>
-    <MobileChange></MobileChange>
     <PrimaryMenu></PrimaryMenu>
 
     <section class="article-creation">
       <section class="article-content">
-        <div>
+        <div class="container">
           <input
             placeholder="Titulo"
             name="titulo"
@@ -15,7 +14,7 @@
           />
           <Editor></Editor>
 
-          <button @click="salvar()">Salvar</button>
+          <button @click="salvar()" id="save">Salvar</button>
         </div>
       </section>
       <section class="article-imagens">
@@ -56,5 +55,24 @@ export default {
 </script>
 
 <style>
+@import "~/static/css/geral.css";
+@import "~/static/css/layout.css";
+@import "~/static/css/menu.css";
+@import "~/static/css/buttons.css";
+@import "~/static/css/elements.css";
+@import '~/static/css/input.css';
+
+@import '~/components/skin-editor/skins/content/CUSTOM/content.css';
+@import '~/components/skin-editor/skins/ui/CUSTOM/content.css';
+@import '~/components/skin-editor/skins/ui/CUSTOM/content.inline.css';
+@import '~/components/skin-editor/skins/ui/CUSTOM/content.inline.min.css';
+@import '~/components/skin-editor/skins/ui/CUSTOM/content.min.css';
+@import '~/components/skin-editor/skins/ui/CUSTOM/content.mobile.css';
+@import '~/components/skin-editor/skins/ui/CUSTOM/content.mobile.min.css';
+@import '~/components/skin-editor/skins/ui/CUSTOM/skin.css';
+@import '~/components/skin-editor/skins/ui/CUSTOM/skin.min.css';
+@import '~/components/skin-editor/skins/ui/CUSTOM/skin.mobile.css';
+@import '~/components/skin-editor/skins/ui/CUSTOM/skin.mobile.min.css';
+@import '~/static/css/article-2.css';
 @import "~/static/css/article.css";
 </style>

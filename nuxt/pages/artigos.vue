@@ -12,46 +12,32 @@
         </section>
     </section>
 </template>
+<style>
+    @import "~/static/css/geral.css";
+    @import "~/static/css/layout.css";
+    @import "~/static/css/menu.css";
+    @import "~/static/css/elements.css";
+    @import '~/static/css/input.css';
+    @import '~/static/css/article.css';
+</style>
 
 <script>
+
 export default {
+    auth: false,
+
     async asyncData({ $axios }) {
         const response = await $axios.$get("/paginas");
         return { response };
     },
 
-    components: { TopBar, MobileNav, PrimaryMenu, CardJava },
+    components: { TopBar, MobileNav, PrimaryMenu, CardJava, MobileEdit },
 };
 
 import TopBar from "~/components/TopBar.vue";
 import MobileNav from "~/components/MobileNav.vue";
 import PrimaryMenu from "~/components/PrimaryMenu.vue";
 import CardJava from "../components/CardJava.vue";
+import MobileEdit from "~/components/MobileEdit.vue";
 </script>
 
-<style scoped>
-section.body {
-    background-color: #f3f3f3;
-}
-
-section.geral{
-    padding-top: 5em;
-}
-
-h2{
-    margin-left: 2.8em;
-}
-
-section.articles {
-    padding: 1.5em;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    /* grid-gap: 2.5em; */
-    gap: 2.5em;
-    background-color: #F3F3F3;
-    background-color: var(--grey);
-    flex-wrap: wrap;
-    justify-content: center;
-}
-</style>

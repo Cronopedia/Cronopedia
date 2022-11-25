@@ -2,7 +2,7 @@
   <section class="body">
     <TopBar></TopBar>
     <router-link :to="`/artigos/editar/${article.id}`">
-      <MobileEdit></MobileEdit>
+
     </router-link>
 
     <PrimaryMenu></PrimaryMenu>
@@ -62,5 +62,10 @@ export default {
 </script>
 
 <style>
-@import "~/static/css/article.css";
+    @import "~/static/css/geral.css";
+    @import "~/static/css/layout.css";
+    @import "~/static/css/menu.css";
+    @import "~/static/css/elements.css";
+    @import '~/static/css/input.css';
+    @import '~/static/css/article.css';
 </style>
