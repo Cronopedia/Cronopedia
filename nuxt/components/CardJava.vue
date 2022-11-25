@@ -18,6 +18,7 @@
 </template>
 <script>
 export default {
+  auth: false,
   name: "Card",
   props: {
       title: String,

@@ -39,6 +39,7 @@ section.article-image span.descricao {
 
 <script>
 export default {
+  auth: false,
   name: "ArticleImage",
   props: {
     url: {

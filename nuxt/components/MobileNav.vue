@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  auth: false,
   name: "MobileNav",
 };
 </script>

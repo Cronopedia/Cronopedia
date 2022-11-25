@@ -3,7 +3,7 @@
     <TopBar></TopBar>
     <PrimaryMenu></PrimaryMenu>
 
-    <section class="geral">
+    <section class="geral-container">
       <section class="img-form">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Crucifixion_of_Saint_Peter-Caravaggio_%28c.1600%29.jpg/800px-Crucifixion_of_Saint_Peter-Caravaggio_%28c.1600%29.jpg" alt="" srcset="">
       </section>
@@ -33,7 +33,7 @@ import PrimaryMenu from "~/components/PrimaryMenu.vue";
 import LoginForm from "~/components/LoginForm.vue";
 </script>
 
-<style>
+<style scoped>
 @import "~/static/css/input.css";
 
 @import "~/static/css/geral.css";
@@ -43,4 +43,6 @@ import LoginForm from "~/components/LoginForm.vue";
 @import "~/static/css/top.css";
 @import "~/static/css/buttons.css";
 @import "~/static/css/form.css";
+
+
 </style>

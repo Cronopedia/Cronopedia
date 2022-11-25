@@ -69,6 +69,7 @@
 @import "~/static/css/menu.css";
 @import "~/static/css/elements.css";
 @import '~/static/css/input.css';
+@import "~/static/css/layout.css";
 </style>
 
 <script>
