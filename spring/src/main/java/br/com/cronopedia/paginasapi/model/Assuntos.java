@@ -1,7 +1,12 @@
 package br.com.cronopedia.paginasapi.model;
 
+import java.util.List;
+
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -20,9 +25,11 @@ public class Assuntos {
     private float relevancia = 0; // A cada nova consulta ao assunto ou página associada, se deve calcular uma
                                   // nova relevancia;
 
-    @ManyToOne
-    @JsonBackReference
-    private Pagina paginasAssociadas;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    }, mappedBy = "assuntos")
+    private List<Pagina> paginas;
 
     public Assuntos() {
     }
@@ -43,12 +50,12 @@ public class Assuntos {
         this.tag = tag;
     }
 
-    public Pagina getPaginasAssociadas() {
-        return paginasAssociadas;
+    public List<Pagina> getPaginas() {
+        return paginas;
     }
 
-    public void setPaginasAssociadas(Pagina paginasAssociadas) {
-        this.paginasAssociadas = paginasAssociadas;
+    public void setPaginas(List<Pagina> paginas) {
+        this.paginas = paginas;
     }
 
     public float getRelevancia() {

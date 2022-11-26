@@ -1,16 +1,21 @@
 package br.com.cronopedia.paginasapi.model;
 
 import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
-@Entity
+@Entity(name = "usuario")
 public class Usuario {
 
     @Id
@@ -25,9 +30,13 @@ public class Usuario {
 
     // ManyToMany com paginas (varios usuários poderão ser donos de varias paginas)
     // -> princípio da colaboração
-    @ManyToOne
-    @JsonBackReference
-    private Pagina paginasAssociadas;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "usuario_pagina", joinColumns = { @JoinColumn(name = "usuario_id") }, inverseJoinColumns = {
+            @JoinColumn(name = "pagina_id") })
+    private List<Pagina> paginas;
 
     public Usuario() {
     }
@@ -40,12 +49,12 @@ public class Usuario {
         ID = iD;
     }
 
-    public Pagina getPaginasAssociadas() {
-        return paginasAssociadas;
+    public List<Pagina> getPaginas() {
+        return paginas;
     }
 
-    public void setPaginasAssociadas(Pagina paginasAssociadas) {
-        this.paginasAssociadas = paginasAssociadas;
+    public void setPaginas(List<Pagina> paginas) {
+        this.paginas = paginas;
     }
 
     public String getNickname() {
