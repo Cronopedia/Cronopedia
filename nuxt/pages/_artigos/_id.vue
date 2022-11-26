@@ -1,9 +1,7 @@
 <template>
   <section class="body">
     <TopBar></TopBar>
-    <router-link :to="`/artigos/editar/${article.id}`">
-
-    </router-link>
+    <router-link :to="`/artigos/editar/${article.id}`"> </router-link>
 
     <PrimaryMenu></PrimaryMenu>
 
@@ -17,7 +15,7 @@
         <br />
         <p
           v-html="
-            `Publicado por <b>${article.autor}</b> em <b>${article.data}</b>`
+            `Publicado por <b>${article.autor}</b> em <b>${article.dataPublicacao}</b>`
           "
         ></p>
       </section>
@@ -57,15 +55,19 @@ export default {
   async mounted() {
     const response = await this.$axios.get("/paginas/id/" + this.ID);
     this.article = response.data;
+
+    this.article.dataPublicacao = String(this.article.dataPublicacao).split(
+      "T"
+    )[0];
   },
 };
 </script>
 
 <style>
-    @import "~/static/css/geral.css";
-    @import "~/static/css/layout.css";
-    @import "~/static/css/menu.css";
-    @import "~/static/css/elements.css";
-    @import '~/static/css/input.css';
-    @import '~/static/css/article.css';
+@import "~/static/css/geral.css";
+@import "~/static/css/layout.css";
+@import "~/static/css/menu.css";
+@import "~/static/css/elements.css";
+@import "~/static/css/input.css";
+@import "~/static/css/article.css";
 </style>
