@@ -3,7 +3,7 @@
     <h2>Log in</h2>
 
     <label for="email" id="email-label" class="label-login">
-      <h4>Email</h4>
+      <h4>Nickname</h4>
     </label>
     <input
       type="text"
@@ -74,18 +74,14 @@ export default {
       try {
         let response = await this.$axios.post("/login", this.login);
 
-        if(response.data.data.token){
+        if (response.data.data.token) {
           await this.setAuthToken(response.data.data);
         }
 
-        if(this.$auth.loggedIn){
-          console.log("Sucesso")
+        if (this.$auth.loggedIn) {
+          console.log("Sucesso");
           this.$router.push("/");
         }
-
-
-
-
       } catch (error) {
         console.log(error);
 
