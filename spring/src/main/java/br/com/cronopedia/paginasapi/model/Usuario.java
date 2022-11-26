@@ -13,8 +13,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 @Entity(name = "usuario")
 public class Usuario {
 

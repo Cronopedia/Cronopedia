@@ -7,9 +7,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
