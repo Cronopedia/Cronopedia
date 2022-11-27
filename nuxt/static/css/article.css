@@ -11,6 +11,10 @@ body {
     background: black;
 }
 
+.geral-article{
+    padding-top: 10em;
+}
+
 .article-view,
 .article-creation {
     display: flex;
