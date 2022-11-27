@@ -1,16 +1,19 @@
 <template>
-    <section class="body">
-        <TopBar></TopBar>
-        <PrimaryMenu></PrimaryMenu>
+  <section class="body">
+    <TopBar></TopBar>
+    <PrimaryMenu></PrimaryMenu>
 
-        <section class="geral">
-            <section class="img-form">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Saint_Jerome_Writing-Caravaggio_%281605-6%29.jpg/1280px-Saint_Jerome_Writing-Caravaggio_%281605-6%29.jpg"
-                    alt="" srcset="">
-            </section>
-            <SignUpForm></SignUpForm>
-        </section>
+    <section class="geral-container">
+      <section class="img-form">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Saint_Jerome_Writing-Caravaggio_%281605-6%29.jpg/1280px-Saint_Jerome_Writing-Caravaggio_%281605-6%29.jpg"
+          alt=""
+          srcset=""
+        />
+      </section>
+      <SignUpForm></SignUpForm>
     </section>
+  </section>
 </template>
 
 <style>
@@ -27,19 +30,17 @@
 
 <script>
 export default {
-    auth: false,
+  auth: false,
 
-    name: "SignPage",
+  name: "SignPage",
 
-    components: { TopBar, PrimaryMenu, SignUpForm },
-    head() {
-        return {
-            title: 'Se cadastre',
-        }
-    }
-
-
-}
+  components: { TopBar, PrimaryMenu, SignUpForm },
+  head() {
+    return {
+      title: "Se cadastre",
+    };
+  },
+};
 
 import TopBar from "~/components/TopBar.vue";
 import PrimaryMenu from "~/components/PrimaryMenu.vue";

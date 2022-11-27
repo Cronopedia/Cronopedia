@@ -16,6 +16,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Pagina {
@@ -40,7 +41,7 @@ public class Pagina {
     // associação das Imagens
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_url")
-    @JsonBackReference
+    @JsonManagedReference
     private List<Imagens> imagensURL;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {
@@ -48,11 +49,13 @@ public class Pagina {
             CascadeType.MERGE
     })
     @JoinTable(name = "pagina_assuntos", joinColumns = @JoinColumn(name = "fk_pagina"), inverseJoinColumns = @JoinColumn(name = "fk_assunto"))
+    @JsonManagedReference
     private List<Assuntos> assuntos;
 
     // Associação dos Históricos
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_edicao")
+    @JsonManagedReference
     private List<Historico> historicos;
 
     // ManyToMany com usuário (varias paginas poderão ser propriedade de varios
@@ -62,6 +65,7 @@ public class Pagina {
             CascadeType.PERSIST,
             CascadeType.MERGE
     }, mappedBy = "paginas")
+    @JsonBackReference
     private List<Usuario> usuarios;
 
     public Pagina() {
@@ -155,4 +159,7 @@ public class Pagina {
         this.usuarios = usuarios;
     }
 
+    public void consultada() {
+        this.relevancia += 0.001;
+    }
 }

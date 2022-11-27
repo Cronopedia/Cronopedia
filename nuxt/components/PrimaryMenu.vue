@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  auth: false,
   name: "PrimaryMenu",
   data() {
     return {

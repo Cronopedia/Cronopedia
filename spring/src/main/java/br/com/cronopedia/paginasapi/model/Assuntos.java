@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,6 +29,7 @@ public class Assuntos {
             CascadeType.PERSIST,
             CascadeType.MERGE
     }, mappedBy = "assuntos")
+    @JsonBackReference
     private List<Pagina> paginas;
 
     public Assuntos() {
@@ -63,4 +67,7 @@ public class Assuntos {
         this.relevancia = relevancia;
     }
 
+    public void consultada() {
+        this.relevancia += 0.001;
+    }
 }
