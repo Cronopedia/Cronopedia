@@ -65,7 +65,11 @@ export default {
     strategies: {
       local: {
         user: {
-          property:''
+          property: ''
+        },
+
+        modder: {
+          property: ''
         },
 
         endpoints: {
@@ -75,8 +79,8 @@ export default {
       }
     },
 
-    router:{
-      middleware:["auth"]
+    router: {
+      middleware: ["auth"]
     }
 
   },

@@ -46,9 +46,31 @@
           </router-link>
         </section>
       </section>
-      <button class="buttons btn-perfil">
+      <router-link
+        v-if="this.$auth.loggedIn"
+        :to="`/me`"
+        class="buttons btn-perfil"
+      >
         <i class="bx bxs-user-circle bx-sm"></i>
-      </button>
+      </router-link>
+
+      <router-link
+        v-if="!this.$auth.loggedIn"
+        :to="`/login`"
+        class="buttons btn-login"
+      >
+        Login In
+      </router-link>
+
+      <span v-if="!this.$auth.loggedIn">|</span>
+
+      <router-link
+        v-if="!this.$auth.loggedIn"
+        :to="`/signup`"
+        class="buttons btn-login"
+      >
+        Sign Up
+      </router-link>
     </div>
   </nav>
 </template>

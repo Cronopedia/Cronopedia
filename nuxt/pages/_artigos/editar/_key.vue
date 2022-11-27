@@ -14,7 +14,11 @@
         </form>
       </section>
       <section class="article-imagens">
-        <ArticleImage :key="i" v-for="i in article.imagens" :url="i"></ArticleImage>
+        <ArticleImage
+          :key="i"
+          v-for="i in article.imagens"
+          :url="i"
+        ></ArticleImage>
       </section>
     </section>
   </section>
@@ -60,10 +64,7 @@ export default {
           this.$router.push("/");
         });
     },
-
   },
-
-
 };
 </script>
 
@@ -72,21 +73,20 @@ export default {
 @import "~/static/css/layout.css";
 @import "~/static/css/menu.css";
 @import "~/static/css/elements.css";
-@import '~/static/css/input.css';
-@import '~/static/css/buttons.css';
+@import "~/static/css/input.css";
+@import "~/static/css/buttons.css";
 
-@import '~/components/skin-editor/skins/content/CUSTOM/content.css';
-@import '~/components/skin-editor/skins/ui/CUSTOM/content.css';
-@import '~/components/skin-editor/skins/ui/CUSTOM/content.inline.css';
-@import '~/components/skin-editor/skins/ui/CUSTOM/content.inline.min.css';
-@import '~/components/skin-editor/skins/ui/CUSTOM/content.min.css';
-@import '~/components/skin-editor/skins/ui/CUSTOM/content.mobile.css';
-@import '~/components/skin-editor/skins/ui/CUSTOM/content.mobile.min.css';
-@import '~/components/skin-editor/skins/ui/CUSTOM/skin.css';
-@import '~/components/skin-editor/skins/ui/CUSTOM/skin.min.css';
-@import '~/components/skin-editor/skins/ui/CUSTOM/skin.mobile.css';
-@import '~/components/skin-editor/skins/ui/CUSTOM/skin.mobile.min.css';
-@import '~/static/css/article.css';
-@import '~/static/css/article-2.css';
-
+@import "~/components/skin-editor/skins/content/CUSTOM/content.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/content.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/content.inline.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/content.inline.min.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/content.min.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/content.mobile.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/content.mobile.min.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/skin.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/skin.min.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/skin.mobile.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/skin.mobile.min.css";
+@import "~/static/css/article.css";
+@import "~/static/css/article-2.css";
 </style>

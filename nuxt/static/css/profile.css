@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+.header {
+    height: 100vh;
+    padding-top: 7em;
+    background: #000;
+    color: white;
+    clip-path: ellipse(100vw 60vh at 50% 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.details {
+    text-align: center;
+}
+
+.profile-pic {
+    min-height: 6rem;
+    min-width: 6rem;
+    object-fit: center;
+    border-radius: 50%;
+    border: 2px solid #fff;
+
+    background-image: url("https://cdn.dribbble.com/users/6142/screenshots/5679189/media/052967c305a8f96a4b40b79ce5e61b0d.png");
+
+    background-position: center;
+    background-size: cover;
+}
+
+.location p {
+    display: inline-block;
+}
+
+.location svg {
+    vertical-align: middle;
+}
+
+.stats {
+    display: flex;
+}
+
+.stats .col-4 {
+    width: 10rem;
+    text-align: center;
+}
+
+.heading {
+    font-weight: 400;
+    font-size: 1.3rem;
+    margin: 1rem 0;
+    margin-bottom: 0;
+    color: #fff;
+}
+
+.nickname {
+    font-weight: 100;
+    font-size: 0.9rem;
+    margin: 1rem 0;
+    margin-top: 0;
+    color: #888;
+}
+
+.nickname::before {
+    content: "@";
+}

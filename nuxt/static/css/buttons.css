@@ -57,45 +57,59 @@ button.edit {
     content: "Cancelar";
 }
 
-@media (max-width: 700px) {
-}
+@media (max-width: 700px) {}
 
-.primary{
-    background: var(--gradient-btn) ;
+.primary {
+    background: var(--gradient-btn);
     border-radius: 100vw;
     border: none;
 }
 
-.primary::after{
+.primary::after {
     content: "Acessar";
 }
 
 
 
-#save, #delete{
+#save,
+#delete {
     background: transparent;
-    border: 2px solid ;
+    border: 2px solid;
     width: 10em;
     padding: 0.5em 1.5em;
     border-radius: 100vw;
     transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-#save{
+#save {
     border-color: var(--main-color);
 }
-#save:hover{
+
+#save:hover {
     background-color: var(--main-color);
 }
 
-#delete{
+#delete {
     border-color: var(--primary-pink);
     background: transparent;
-    
+
 }
 
-#delete:hover{
+#delete:hover {
     background-color: var(--primary-pink);
+}
+
+#logout {
+    background: linear-gradient(90deg, #F76AA5 -55.7%, #ff385d 113.76%);
+    border-color: var(--primary-pink);
+}
+
+#logout:hover {
+    box-shadow: 0px 0px 10px 2px var(--error);
+}
+
+#logout::after {
+    content: "Logout";
 }
 
 

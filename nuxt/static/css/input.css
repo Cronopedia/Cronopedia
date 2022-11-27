@@ -39,6 +39,15 @@
     color: currentColor;
 }
 
+.btn-login {
+    font-size: .6em;
+    padding: 0.2em !important;
+    width: fit-content;
+
+    text-decoration: none !important;
+    color: #E7E7E7 !important;
+}
+
 
 
 .menu-button::after,
