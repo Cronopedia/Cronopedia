@@ -36,7 +36,12 @@
             <div class="article-link">
               <p class="link-title">{{ resultado.titulo }}</p>
               <p class="link-description">{{ resultado.resumo }}</p>
-              <p class="link-topic">Tópicos: {{ resultado.assuntos }}</p>
+              <p class="link-topic">
+                Tópicos:
+                <span :key="tag" v-for="tag in resultado.assuntos">
+                  {{ tag.tag }} |
+                </span>
+              </p>
             </div>
           </router-link>
         </section>
@@ -106,5 +111,4 @@ export default {
 </style>
   
 <style>
-
 </style>
