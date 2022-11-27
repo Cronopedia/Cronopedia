@@ -3,15 +3,13 @@
     <TopBar></TopBar>
     <PrimaryMenu></PrimaryMenu>
 
-    <section class="geral-container">
-      <section class="img-form">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Saint_Jerome_Writing-Caravaggio_%281605-6%29.jpg/1280px-Saint_Jerome_Writing-Caravaggio_%281605-6%29.jpg"
-          alt=""
-          srcset=""
-        />
-      </section>
-      <SignUpForm></SignUpForm>
+        <section class="geral-container">
+            <section class="img-form">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Saint_Jerome_Writing-Caravaggio_%281605-6%29.jpg/1280px-Saint_Jerome_Writing-Caravaggio_%281605-6%29.jpg"
+                    alt="" srcset="">
+            </section>
+            <SignUpForm></SignUpForm>
+        </section>
     </section>
   </section>
 </template>

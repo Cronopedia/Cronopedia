@@ -1,12 +1,14 @@
 <template>
     <section class="body">
         <TopBar></TopBar>
-        <section class="geral">
+        <section class="geral geral-article">
             <h2>Explore novos Artigos</h2>
             <section class="articles">
-                <section :key="card" v-for="card in response">
-                    <CardJava v-bind:title="`${card.titulo}`" v-bind:resumo="`${card.resumo}`"
-                        v-bind:img="`${card.imagens}`" :id="card.id"></CardJava>
+                <section class="article">
+                    <section :key="card" v-for="card in response">
+                        <CardJava v-bind:title="`${card.titulo}`" v-bind:resumo="`${card.resumo}`"
+                            v-bind:img="`${card.imagens}`" :id="card.id"></CardJava>
+                    </section>
                 </section>
             </section>
         </section>
