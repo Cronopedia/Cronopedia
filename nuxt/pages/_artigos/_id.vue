@@ -22,7 +22,7 @@
       <section class="article-imagens">
         <ArticleImage
           :key="i"
-          v-for="i in article.imagens"
+          v-for="i in article.imagensURL"
           :url="i"
         ></ArticleImage>
       </section>

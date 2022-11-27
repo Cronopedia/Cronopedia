@@ -24,7 +24,7 @@
               placeholder="Descubra algo novo..."
               autocomplete="off"
             />
-            <button type="submit" id="search-submit"> Pesquisar </button>
+            <button type="submit" id="search-submit">Pesquisar</button>
           </form>
         </section>
 
@@ -45,17 +45,15 @@
         <section class="article day">
           <h2>Explorar Artigos</h2>
 
-          <section :key="card" v-for="card in response">  
+          <section :key="card" v-for="card in response">
             <CardJava
               v-bind:title="`${card.titulo}`"
               v-bind:resumo="`${card.resumo}`"
-              v-bind:img="`${card.imagens}`"
+              v-bind:img="`${card.imagensURL[0].url}`"
               :id="card.id"
             ></CardJava>
           </section>
-
         </section>
-
       </section>
     </section>
   </section>
@@ -68,7 +66,7 @@
 @import "~/static/css/layout.css";
 @import "~/static/css/menu.css";
 @import "~/static/css/elements.css";
-@import '~/static/css/input.css';
+@import "~/static/css/input.css";
 @import "~/static/css/layout.css";
 </style>
 
@@ -76,10 +74,8 @@
 export default {
   auth: false,
   name: "IndexPage",
-  data(){
-    return{
-      
-    };
+  data() {
+    return {};
   },
   head() {
     return {
@@ -87,8 +83,7 @@ export default {
     };
   },
 
-  methods: {
-  },
+  methods: {},
 
   async asyncData({ $axios }) {
     const response = await $axios.$get("/paginas");
@@ -97,7 +92,6 @@ export default {
   },
 
   components: { TopBar, MobileNav, PrimaryMenu, CardJava },
-
 };
 
 import TopBar from "~/components/TopBar.vue";
