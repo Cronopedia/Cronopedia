@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -29,12 +30,33 @@ public interface MetodosCustomInterface {
     @Query(value = "SELECT * FROM pagina ORDER BY relevancia DESC", nativeQuery = true)
     List<Pagina> findPaginasAllOrderByRelevanciaDesc();
 
-    // Update relevancia
     @Modifying
     @Transactional
-    @Query(value = "UPDATE pagina SET relevancia = :relevancia WHERE id = :id", nativeQuery = true)
-    Pagina updateRelevanciaPagina(@Param("relevancia") float relevancia,
-            @Param("id") long id);
+    @Query(value = "DELETE FROM pagina_assuntos WHERE fk_pagina = :page_id", nativeQuery = true)
+    void deleteAssuntoByPaginaId(@Param("page_id") Long id);
+
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM usuario_pagina WHERE pagina_id = :page_id", nativeQuery = true)
+    void deleteUsuarioByPaginaId(@Param("page_id") Long id);
+
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM imagens WHERE pagina_id = :page_id", nativeQuery = true)
+    void deleteImagensByPaginaId(@Param("page_id") Long id);
+
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM historico WHERE pagina_id = :page_id", nativeQuery = true)
+    void deleteHistoricoByPaginaId(@Param("page_id") Long id);
+
+    // Update relevancia
+    // @Modifying
+    // @Transactional
+    // @Query(value = "UPDATE pagina SET relevancia = :relevancia WHERE id = :id",
+    // nativeQuery = true)
+    // Pagina updateRelevanciaPagina(@Param("relevancia") float relevancia,
+    // @Param("id") long id);
 
     @Query(value = "SELECT CASE WHEN EXISTS (SELECT id FROM assuntos WHERE tag LIKE :tag)THEN true ELSE false END", nativeQuery = true)
     Integer existsByTag(@Param("tag") String tag);

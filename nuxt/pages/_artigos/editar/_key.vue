@@ -11,6 +11,7 @@
 
           <button @click="salvar()" id="save">Salvar</button>
           <button @click="deletar()" id="delete">Deletar</button>
+          <button @click="ocultar()" id="ocultar">Ocultar</button>
         </form>
       </section>
       <section class="article-imagens">
@@ -60,6 +61,13 @@ export default {
     async deletar() {
       await this.$axios
         .$delete("/paginas/deletar/" + this.article.id)
+        .then(() => {
+          this.$router.push("/");
+        });
+    },
+    async ocultar() {
+      await this.$axios
+        .$put("/paginas/ocultar/" + this.article.id)
         .then(() => {
           this.$router.push("/");
         });

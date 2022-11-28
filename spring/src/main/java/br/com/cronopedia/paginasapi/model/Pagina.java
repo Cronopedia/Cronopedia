@@ -27,11 +27,13 @@ public class Pagina {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String titulo;
 
+    private String titulo;
     private String autor;
     private Date dataPublicacao;
     private String resumo;
+
+    private Boolean visibilidade = true;
 
     @Column(columnDefinition = "longtext")
     private String conteudo;
@@ -161,5 +163,13 @@ public class Pagina {
 
     public void consultada() {
         this.relevancia += 0.001;
+    }
+
+    public void setVisibilidade(Boolean visibilidade) {
+        this.visibilidade = visibilidade;
+    }
+
+    public Boolean isVisible() {
+        return visibilidade;
     }
 }

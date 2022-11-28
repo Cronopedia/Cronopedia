@@ -80,6 +80,7 @@ export default {
 
         if (this.$auth.loggedIn) {
           console.log("Sucesso");
+          this.$nuxt.refresh();
           this.$router.push("/");
         }
       } catch (error) {
