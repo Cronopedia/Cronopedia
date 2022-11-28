@@ -1,7 +1,7 @@
 <template>
   <section class="body">
     <TopBar></TopBar>
-    <MobileChange></MobileChange>
+
     <PrimaryMenu></PrimaryMenu>
 
     <section class="article-view" :id="`${article.id}`">
@@ -9,8 +9,9 @@
         <form>
           <Editor :conteudo="`${article.conteudo}`"></Editor>
 
-          <button @click="salvar()">Salvar</button>
-          <button @click="deletar()">Deletar</button>
+          <button @click="salvar()" id="save">Salvar</button>
+          <button @click="deletar()" id="delete">Deletar</button>
+          <button @click="ocultar()" id="ocultar">Ocultar</button>
         </form>
       </section>
       <section class="article-imagens">
@@ -43,6 +44,7 @@ export default {
     const article = await $axios.$get("/paginas/id/" + params.key);
     return { article };
   },
+
   methods: {
     async salvar() {
       var textarea = document.querySelector(
@@ -63,10 +65,36 @@ export default {
           this.$router.push("/");
         });
     },
+    async ocultar() {
+      await this.$axios
+        .$put("/paginas/ocultar/" + this.article.id)
+        .then(() => {
+          this.$router.push("/");
+        });
+    },
   },
 };
 </script>
 
 <style>
+@import "~/static/css/geral.css";
+@import "~/static/css/layout.css";
+@import "~/static/css/menu.css";
+@import "~/static/css/elements.css";
+@import "~/static/css/input.css";
+@import "~/static/css/buttons.css";
+
+@import "~/components/skin-editor/skins/content/CUSTOM/content.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/content.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/content.inline.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/content.inline.min.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/content.min.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/content.mobile.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/content.mobile.min.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/skin.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/skin.min.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/skin.mobile.css";
+@import "~/components/skin-editor/skins/ui/CUSTOM/skin.mobile.min.css";
 @import "~/static/css/article.css";
+@import "~/static/css/article-2.css";
 </style>

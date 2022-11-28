@@ -3,7 +3,7 @@
     api-key="u19n8hdzwus3tpuaj01ao7t5z5jtwdvxyaouzt77iy5hn75j"
     :init="{
       height: 700,
-      skin: 'naked',
+      skin_url: '/skin-editor/',
       icons: 'thin',
       plugins: [
         'advlist',
@@ -79,6 +79,7 @@
     output-format="html"
   />
 </template>
+
 
 <script>
 import tinyEditor from "@tinymce/tinymce-vue";

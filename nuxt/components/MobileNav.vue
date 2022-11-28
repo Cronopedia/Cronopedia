@@ -1,6 +1,7 @@
 <template>
   <section class="mobile-nav">
-    <button class="mobile-button create"></button>
+    <a href="/criar"> <button class="mobile-button create" > </button></a>
+    
     <!-- <button class="edit-mobile salvar"></button>
     <button class="edit-mobile cancelar"></button> -->
   </section>
@@ -8,6 +9,7 @@
 
 <script>
 export default {
+  auth: false,
   name: "MobileNav",
 };
 </script>
@@ -20,5 +22,5 @@ export default {
 @import "~/static/css/layout.css";
 @import "~/static/css/menu.css";
 @import "~/static/css/elements.css";
-@import "~/static/css/style.css";
+
 </style>

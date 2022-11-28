@@ -3,7 +3,7 @@
     <!-- <img :src="`/static/img/artigos/${articleID}/${articleID}.jpg`" /> -->
 
     <div class="article-image-container">
-      <img :style="`background-image: url('${url}');`" alt="" />
+      <img :style="`background-image: url('${url.url}');`" alt="" />
     </div>
     <span class="descricao"> Descrição: Algum dia nós colocamos</span>
   </section>
@@ -39,10 +39,11 @@ section.article-image span.descricao {
 
 <script>
 export default {
+  auth: false,
   name: "ArticleImage",
   props: {
     url: {
-      type: String,
+      type: Array,
     },
   },
   methods: {},

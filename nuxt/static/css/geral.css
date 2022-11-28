@@ -12,10 +12,15 @@
     --step-5: clamp(2.49rem, calc(2.12rem + 1.84vw), 3.43rem);
     --grey: #F3F3F3;
     --background: black;
+    --form: linear-gradient(0deg, rgba(10, 10, 15, 0.899) 0%, hsla(244, 8%, 34%, 0.504) 105%);
+    --form-img: linear-gradient(0deg, hsla(244, 8%, 34%, 0.13) 0%, hsla(244, 8%, 34%, 0.45) 100%);
     --input-1: hsla(245, 7%, 30%, 0.71);
+    --input-hover:hsla(244, 6%, 49%, 0.744);
     --gradient-btn: linear-gradient(90deg, #F76AA5 -55.7%, #6704E6 113.76%);
     --main-color: #6704E6;
     --text-color: white;
+    --error: #ff385d;
+    --primary-pink: #F76AA5;
 }
 
 *{
@@ -60,6 +65,6 @@ button{
 
 /* Seleção */
 ::selection {
-    background: red;
+    background: var(--main-color);
     color: #fff;
   }

@@ -1,3 +1,10 @@
+ .articles, .geral, .home {
+    box-sizing: border-box;
+}
+
+.geral{
+    overflow-y: scroll;
+}
 /* Inicio da página*/
 .home {
     width: 100%;
@@ -6,7 +13,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 15em 1.5em;
-    padding-top: 20em;
+
 }
 
 .home * {
@@ -40,16 +47,39 @@
     transition: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.init form{
+.init form {
     cursor: text;
 }
 
-.init form:focus-within{
+.init form:focus-within {
     background-color: transparent;
     border: 2px solid var(--main-color);
 }
 
 .img {
     width: 20em;
-    background: white;
+}
+
+.img {
+    width: 20em;
+    height: 22.5em;
+    background-image: url('https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/pia23809.jpg');
+    background-size: cover;
+}
+
+@media (max-width: 800px) {
+    .home{
+        padding: 12em 1em 7.5em 1.5em;
+    }
+    .img {
+        display: none;
+    }
+
+    .init {
+        width: 100%;
+    }
+
+    .init form {
+        width: 100%;
+    }
 }

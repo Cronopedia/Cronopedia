@@ -1,6 +1,6 @@
 button.edit {
     position: fixed;
-    background-color: white;
+    background-color: var(--main-color);
     width: 3.5em;
     aspect-ratio: 1;
     border-radius: 50%;
@@ -10,7 +10,7 @@ button.edit {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: black;
+    color: white;
 }
 
 
@@ -57,54 +57,64 @@ button.edit {
     content: "Cancelar";
 }
 
-@media (max-width: 700px) {
-    button.edit {
-        display: none;
-    }
-}
+@media (max-width: 700px) {}
 
 .primary {
-    border-radius: 6px;
-    background-color: white;
-    border: 3px solid black;
-    box-sizing: border-box;
-    font-weight: bold;
-    color: black;
-    width: 6em;
-    padding: 0.5em 0.25em;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s cubic-bezier(0.83, 0, 0.17, 1);
+    background: var(--gradient-btn);
+    border-radius: 100vw;
+    border: none;
 }
 
-/* .primary::after {
-    content: "Acessar.";
-    position: relative;
-    display: block;
-    color: rgb(255, 255, 255);
-    mix-blend-mode: difference;
+.primary::after {
+    content: "Acessar";
 }
 
-.primary::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 102%;
-    height: 106%;
-    padding: 0.5em 0.25em;
-    background-color: black;
-    transform-origin: right;
-    transform: scaleX(0);
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+
+
+#save,
+#ocultar,
+#delete {
+    background: transparent;
+    border: 2px solid;
+    width: 10em;
+    padding: 0.5em 1.5em;
+    border-radius: 100vw;
+    transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.primary:hover::before {
-    transform: scaleX(1);
-    transform-origin: left;
-    transition: transform 0.5s cubic-bezier(0.83, 0, 0.17, 1);
-} */
+#save {
+    border-color: var(--main-color);
+}
+
+#save:hover {
+    background-color: var(--main-color);
+}
+
+#ocultar,
+#delete {
+    border-color: var(--primary-pink);
+    background: transparent;
+
+}
+
+#ocultar:hover,
+#delete:hover {
+    background-color: var(--primary-pink);
+}
+
+#logout {
+    background: linear-gradient(90deg, #F76AA5 -55.7%, #ff385d 113.76%);
+    border-color: var(--primary-pink);
+}
+
+#logout:hover {
+    box-shadow: 0px 0px 10px 2px var(--error);
+}
+
+#logout::after {
+    content: "Logout";
+}
+
 
 @media (max-width: 700px) {
     .primary::before {

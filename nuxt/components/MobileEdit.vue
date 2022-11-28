@@ -1,8 +1,9 @@
 <template>
   <section class="mobile-nav">
-    <button class="mobile-button">
-      <i class="bx bxs-pencil bx-sm"></i>
-    </button>
+    <router-link :to="`/artigos/editar/${article.id}`">
+          <ButtonEdit></ButtonEdit>
+    </router-link>
+
   </section>
 </template>
 
@@ -19,5 +20,4 @@ export default {
 @import "~/static/css/layout.css";
 @import "~/static/css/menu.css";
 @import "~/static/css/elements.css";
-@import "~/static/css/style.css";
 </style>

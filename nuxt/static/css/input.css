@@ -1,6 +1,5 @@
 .primary {
     border-radius: 6px;
-    background-color: black;
     font-weight: bold;
     color: white;
     width: 6em;
@@ -39,6 +38,16 @@
 .btn-perfil * {
     color: currentColor;
 }
+
+.btn-login {
+    font-size: .6em;
+    padding: 0.2em !important;
+    width: fit-content;
+
+    text-decoration: none !important;
+    color: #E7E7E7 !important;
+}
+
 
 
 .menu-button::after,
@@ -148,6 +157,12 @@ div.article-link p.link-description {
     text-decoration: none !important;
 }
 
+div.article-link p.link-topic>* {
+    font-size: 1em !important;
+    color: rgb(64, 64, 64) !important;
+    text-decoration: none !important;
+}
+
 div.article-link p.link-topic {
     margin: 0;
     margin-top: 1.5em;
@@ -182,12 +197,12 @@ section.search-results-dropdown ::-webkit-scrollbar-thumb {
 
 ::-webkit-scrollbar {
     width: 0.3em;
-    background-color: rgba(0, 0, 0, 0.1)
+    background-color: hsla(0, 0%, 35%, 0);
 }
 
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    border: 3px solid rgba(0, 0, 0, 0.17);
+    background-color: var(--input-1);
 }
 
 /* Outra pesquisa */
@@ -198,7 +213,7 @@ section.search-results-dropdown ::-webkit-scrollbar-thumb {
     background-color: transparent;
     border: none;
     outline: none;
-    
+
 }
 
 #search::placeholder {

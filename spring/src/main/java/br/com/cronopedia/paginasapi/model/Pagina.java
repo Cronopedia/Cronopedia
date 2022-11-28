@@ -4,7 +4,9 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +15,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -24,11 +27,15 @@ public class Pagina {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String titulo;
 
+    private String titulo;
     private String autor;
     private Date dataPublicacao;
     private String resumo;
+
+    private Boolean visibilidade = true;
+
+    @Column(columnDefinition = "longtext")
     private String conteudo;
 
     private float relevancia = 0; // A cada nova consulta a página, se deve calcular uma nova relevancia;
@@ -39,15 +46,13 @@ public class Pagina {
     @JsonManagedReference
     private List<Imagens> imagensURL;
 
-    // Associação dos Assuntos
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_pagina")
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "pagina_assuntos", joinColumns = @JoinColumn(name = "fk_pagina"), inverseJoinColumns = @JoinColumn(name = "fk_assunto"))
     @JsonManagedReference
     private List<Assuntos> assuntos;
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "associacao_pagina_assuntos", joinColumns = @JoinColumn(name = "fk_pagina"), inverseJoinColumns = @JoinColumn(name = "fk_assunto"))
-    private List<manyAssuntos> assuntosMany;
 
     // Associação dos Históricos
     @OneToMany(cascade = CascadeType.ALL)
@@ -58,14 +63,12 @@ public class Pagina {
     // ManyToMany com usuário (varias paginas poderão ser propriedade de varios
     // usuários) -> princípio da colaboração
     // Associação dos Assuntos
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_pagina")
-    @JsonManagedReference
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    }, mappedBy = "paginas")
+    @JsonBackReference
     private List<Usuario> usuarios;
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "associacao_pagina_usuario", joinColumns = @JoinColumn(name = "fk_pagina"), inverseJoinColumns = @JoinColumn(name = "fk_usuario"))
-    private List<manyUsuarios> usuariosMany;
 
     public Pagina() {
     }
@@ -142,14 +145,6 @@ public class Pagina {
         this.assuntos = assuntos;
     }
 
-    public List<manyAssuntos> getAssuntosMany() {
-        return assuntosMany;
-    }
-
-    public void setAssuntosMany(List<manyAssuntos> assuntosMany) {
-        this.assuntosMany = assuntosMany;
-    }
-
     public List<Historico> getHistoricos() {
         return historicos;
     }
@@ -166,12 +161,15 @@ public class Pagina {
         this.usuarios = usuarios;
     }
 
-    public List<manyUsuarios> getUsuariosMany() {
-        return usuariosMany;
+    public void consultada() {
+        this.relevancia += 0.001;
     }
 
-    public void setUsuariosMany(List<manyUsuarios> usuariosMany) {
-        this.usuariosMany = usuariosMany;
+    public void setVisibilidade(Boolean visibilidade) {
+        this.visibilidade = visibilidade;
     }
 
+    public Boolean isVisible() {
+        return visibilidade;
+    }
 }

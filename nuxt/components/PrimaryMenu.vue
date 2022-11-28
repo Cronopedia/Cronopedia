@@ -4,17 +4,30 @@
     <li><a href="/artigos"> Artigos</a></li>
     <li><a href="/criar"> Criar</a></li>
     <li><a :href="`/artigo/${randArtigo}`"> Surpreenda-me!</a></li>
-    <li id="login"><a href="/login"> Log in</a></li>
+    <li v-if="!this.$auth.loggedIn" id="login"><a href="/login"> Log in</a></li>
+    <button
+      v-if="this.$auth.loggedIn"
+      v-on:click="logout()"
+      class="primary"
+      id="logout"
+    ></button>
   </ul>
 </template>
 
 <script>
 export default {
+  auth: false,
   name: "PrimaryMenu",
   data() {
     return {
       randArtigo: Math.floor(Math.random() * 6),
     };
+  },
+
+  methods: {
+    async logout() {
+      const logout = await this.$auth.logout();
+    },
   },
 };
 </script>

@@ -1,11 +1,16 @@
 <template>
   <div class="card-article">
-    <div class="img-article" :style="`background-image: url('${img}');`"></div>
+    <div
+      class="img-article"
+      :style="`background-image: url('${img}'); background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+    background-repeat: repeat-x;`"
+    ></div>
 
     <article class="card-text">
-        <h2 v-html="`${title}`">    </h2>
-      <p v-html="`${resumo}`">
-      </p>
+      <h2 v-html="`${title}`"></h2>
+      <p v-html="`${resumo}`"></p>
       <!-- buttom o click -> goToArticle -->
       <router-link
         :to="`/artigos/${id}`"
@@ -18,28 +23,24 @@
 </template>
 <script>
 export default {
+  auth: false,
   name: "Card",
   props: {
-      title: String,
-      resumo: String,
-      img: String,
-      id: Number
+    title: String,
+    resumo: String,
+    img: String,
+    id: Number,
   },
   data() {
-    return {
-      
-    };
+    return {};
   },
-  methods: {
-    
-  },
-
+  methods: {},
 };
 </script>
 
 <style scoped>
 @import "~/static/css/input.css";
-@import "~/static/css/form.css";
+@import "~/static/css/buttons.css";
 @import "~/static/css/geral.css";
 @import "~/static/css/layout.css";
 @import "~/static/css/menu.css";

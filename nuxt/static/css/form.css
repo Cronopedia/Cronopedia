@@ -1,34 +1,52 @@
-.geral {
-    height: 100vh;
+.geral-container {
     width: 100vw;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    
     gap: 2em;
     box-sizing: border-box;
     
 }
 
-.geral {
+.geral-container {
     background-color: var(--background);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height:100vh;
+
 }
 
+
+
 .img-form{
+    padding: 1.5em 0em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100%;
-    background-color: rgb(71, 68, 68);
+    background: var(--form-img);
     width: 50%;
+    
+}
+
+
+
+.img-form img{
+    box-shadow: inset 0px 1px 4px rgba(239, 233, 233, 0.46);
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+    background-color: red;
+    border-radius: 10px;
 }
 
 .login-form {
-    background-color: red;
+
     box-sizing: border-box;
-    height: 30em;
+    height: 100%;
     width: 35%;
+    min-width: 20em;
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -38,6 +56,15 @@
     padding: 0.8em 1.25em;
 }
 
+.sign{
+    height: 60%;
+    justify-content: flex-start;
+    overflow-y: scroll;
+}
+
+h2{
+    color: white;
+}
 /* .geral::after {
     content: "";
     display: block;
@@ -51,6 +78,7 @@
 
 .login-form input {
     width: 60%;
+    min-width: 10em;
 }
 
 .input-style-1 {
@@ -62,19 +90,20 @@
 .input-style-1 {
     padding: 0.25em 0.75em;
     box-sizing: border-box;
-    color: black;
-    background-color: white;
-    border: 2px solid #e0e0e0;
-    border-radius: 6px;
+    color: white;
+    background-color: var(--input-1);
+    border: 2px solid transparent;
+    border-radius: 100vw;
     transition: 0.3s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .input-style-1:hover {
-    border-color: black;
+    border-color: var(--input-hover);
 }
 
 .input-style-1:focus {
-    border-color: black;
+    border-color: var(--main-color);
+    background-color: transparent;
 }
 
 .input-style-1::placeholder {
@@ -84,7 +113,7 @@
 
 .label-login {
     width: 60%;
-    color: black;
+    color: white;
     margin-bottom: -1.5em;
     display: flex;
     align-items: center;
@@ -97,26 +126,67 @@
 }
 
 .primary{
-    border-radius: 100vw;
+    box-shadow: 0px 0px 0px 0px var(--main-color);
+    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
+.primary:hover{
+
+    box-shadow: 0px 0px 10px 2px var(--main-color);
+}
+
 .primary::after {
+    color: white;
     content: "Log In";
+
 }
+
+.sign-up::after{
+    content: "Cadastrar";
+}
+
+
 
 
 .erro {
-    border-color: rgb(249, 118, 118);
+    border-color: var(--error);
 }
 
 .mensagem-erro {
     height: 16px;
     margin-top: -1.5em;
-    width: 90%;
+    width: 60%;
     transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    color: rgb(249, 118, 118);
+    color: var(--error);
     opacity: 0%;
 }
 
 .vis {
     opacity: 100%;
+}
+
+/* Responsividade */
+@media screen and (max-width: 980px){
+    .geral{
+        justify-content: center;
+    }
+    .login-form{
+        
+        background: var(--form);
+        box-shadow: inset 0px 1px 4px rgba(239, 233, 233, 0.46);
+        backdrop-filter: blur(10px);
+        position: absolute;
+        width: 50%;
+        height: 25em;
+
+    }
+
+    .img-form{
+        padding: 0;
+        width: 100%;
+    }
+
+    .img-form img{
+        width: 100%;
+    }
 }

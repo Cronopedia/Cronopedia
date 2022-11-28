@@ -24,7 +24,7 @@
               placeholder="Descubra algo novo..."
               autocomplete="off"
             />
-            <button type="submit" id="search-submit"> Pesquisar </button>
+            <button type="submit" id="search-submit">Pesquisar</button>
           </form>
         </section>
 
@@ -44,14 +44,15 @@
 
         <section class="article day">
           <h2>Explorar Artigos</h2>
-        </section>
-        <section :key="card" v-for="card in response">  
-          <CardJava
-            v-bind:title="`${card.titulo}`"
-            v-bind:resumo="`${card.resumo}`"
-            v-bind:img="`${card.imagens}`"
-            :id="card.id"
-          ></CardJava>
+
+          <section :key="card" v-for="card in response">
+            <CardJava
+              v-bind:title="`${card.titulo}`"
+              v-bind:resumo="`${card.resumo}`"
+              v-bind:img="`${card.imagensURL[0].url}`"
+              :id="card.id"
+            ></CardJava>
+          </section>
         </section>
       </section>
     </section>
@@ -60,20 +61,21 @@
 
 
 <style>
+@import "~/static/css/style.css";
 @import "~/static/css/geral.css";
 @import "~/static/css/layout.css";
 @import "~/static/css/menu.css";
 @import "~/static/css/elements.css";
-@import '~/static/css/input.css'
+@import "~/static/css/input.css";
+@import "~/static/css/layout.css";
 </style>
 
 <script>
 export default {
+  auth: false,
   name: "IndexPage",
-  data(){
-    return{
-      
-    };
+  data() {
+    return {};
   },
   head() {
     return {
@@ -81,8 +83,7 @@ export default {
     };
   },
 
-  methods: {
-  },
+  methods: {},
 
   async asyncData({ $axios }) {
     const response = await $axios.$get("/paginas");

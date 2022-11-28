@@ -1,3 +1,5 @@
+import { strategies } from "@nuxtjs/auth/lib/module/defaults"
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -43,16 +45,46 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+
+    '@nuxtjs/auth-next',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: 'http://127.0.0.1:8080',
+    baseURL: 'http://127.0.0.1:8080/',
+
     headers: {
       'Content-Type': 'application/json'
-    }
+    },
+
+
   },
+
+  auth: {
+    strategies: {
+      local: {
+        user: {
+          property: ''
+        },
+
+        modder: {
+          property: ''
+        },
+
+        endpoints: {
+          login: { url: '/login', method: 'post', propertyName: "data.token" },
+          user: { url: '/user/me', method: 'get' },
+        }
+      }
+    },
+
+    router: {
+      middleware: ["auth"]
+    }
+
+  },
+
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
